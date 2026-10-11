@@ -37,7 +37,7 @@ See `VALIDATION.md` for verification results and limits.
 
 ## Legal and consent status (11 October 2026)
 
-CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The planned hello@calmsilver.com mailbox is being activated. The footer provides an ANPC/SAL information link and permanent cookie settings in Romanian and English.
+CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The planned hello@calmsilver.com mailbox is being activated. The footer provides both supplied ANPC/SAL images, aligned left and right and linked to the SAL information page and permanent cookie settings in Romanian and English.
 
 The site code uses calmsilver.consent (180-day local consent record) and calmsilver.language (optional language preference). Language storage is disabled before permission and deleted on withdrawal or expiry. No site analytics or advertising integration is installed. The panel controls only CalmSilver application storage; hosting mechanisms require separate verification.
 

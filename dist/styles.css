@@ -23,3 +23,7 @@
 @media(max-width:850px){.cookie-banner{flex-direction:column;align-items:flex-start;gap:16px}.cookie-banner>.cookie-actions{max-width:100%}.cookie-banner p{max-width:100%}.footer-bottom>div{gap:8px 15px}}
 @media(max-width:700px){.footer-legal{align-items:flex-start;flex-direction:column;gap:18px}.cookie-banner{bottom:10px;width:calc(100% - 20px);padding:18px;max-height:60vh;overflow:auto}.cookie-banner h2{font-size:24px}.cookie-category{gap:15px}.cookie-actions{gap:8px}.cookie-fixed{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.cookie-choice{transition:none}}
+
+/* Both supplied ANPC/SAL images: square left, horizontal right. */
+.footer-legal-info{padding-bottom:20px}.footer-legal-info p{font-size:11px}.footer-legal{flex-direction:row;align-items:center;justify-content:space-between}.sal-link-square{width:110px;height:110px;overflow:visible}.sal-link-square img{width:100%;height:auto;max-width:100%;transform:none;object-fit:contain}.sal-link-horizontal{width:250px;height:auto;aspect-ratio:250/64}.sal-link-horizontal img{width:100%;height:auto;transform:translateY(-28.667%)}
+@media(max-width:700px){.footer-legal{flex-direction:row;align-items:center;gap:24px}.sal-link-square{width:76px;height:76px}.sal-link-horizontal{width:min(250px,calc(100% - 100px))}}

@@ -28,3 +28,9 @@ The Sites audience is public. The custom `calmsilver.com` domain is not connecte
 - Permanent settings link, controller identity and ANPC/SAL link verified in markup. The supplied horizontal badge is displayed without distortion, with its blank margins clipped by CSS.
 - Hosting infrastructure cookies/analytics have not been inventoried. Application settings do not control platform mechanisms.
 - The supplied legal PDF templates remain unpublished, pending final policy content, hosting verification and a functioning contact address.
+
+## Both SAL images — 11 October 2026
+
+- Both supplied images are present in the footer: the square image on the left and the horizontal image on the right. Both link to https://reclamatiisal.anpc.ro/.
+- Image proportions are preserved. Responsive sizing retains left/right placement on narrow screens; only blank margins of the horizontal original are clipped.
+- Both local assets and both links verified in HTML. Rendered browser QA remains unavailable.
