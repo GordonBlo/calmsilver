@@ -34,3 +34,12 @@ The Sites project identity is stored in `.openai/hosting.json`. Source and deplo
 ## Validation
 
 See `VALIDATION.md` for verification results and limits.
+
+## Legal and consent status (11 October 2026)
+
+CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The planned hello@calmsilver.com mailbox is being activated. The footer provides an ANPC/SAL information link and permanent cookie settings in Romanian and English.
+
+The site code uses calmsilver.consent (180-day local consent record) and calmsilver.language (optional language preference). Language storage is disabled before permission and deleted on withdrawal or expiry. No site analytics or advertising integration is installed. The panel controls only CalmSilver application storage; hosting mechanisms require separate verification.
+
+The supplied GDPR/cookie PDFs are unfilled templates and have not been published. Detailed policies and downloadable PDFs remain pending verified infrastructure information and an operational contact address. This release is not a claim of complete legal compliance.
+

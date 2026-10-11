@@ -117,6 +117,24 @@ const translations = {
   }
 };
 
+
+Object.assign(translations.ro, {
+  privacyLink: 'Politica de confidențialitate', cookiesLink: 'Politica de cookies', cookieSettings: 'Setări cookie-uri',
+  operatorLabel: 'CalmSilver este un proiect de brand al lui Andre Richard-Peter.', registrationPending: 'Forma juridică este în curs de pregătire.',
+  emailPending: 'Adresa de e-mail este în curs de activare.',
+  privacyIdentity: 'Operator: Andre Richard-Peter. CalmSilver este un brand în pregătire, fără o entitate SRL/PFA înregistrată în prezent.',
+  privacyText2: 'Informațiile primite prin e-mail sunt folosite pentru a răspunde și a discuta proiectul. Adresa planificată pentru contact și întrebări despre date este hello@calmsilver.com; aceasta este în curs de activare.',
+  privacyText3: 'Limba paginii este memorată în browser numai dacă activezi preferințele în Setări cookie-uri. Platforma de găzduire poate prelucra date tehnice și statistici conform propriilor politici. Informarea de aici este preliminară; documentele detaliate vor fi completate după verificarea infrastructurii și activarea contactului.'
+});
+Object.assign(translations.en, {
+  privacyLink: 'Privacy information', cookiesLink: 'Cookie information', cookieSettings: 'Cookie settings',
+  operatorLabel: 'CalmSilver is a brand project by Andre Richard-Peter.', registrationPending: 'Business registration is being prepared.',
+  emailPending: 'This email address is being activated.',
+  privacyIdentity: 'Operator: Andre Richard-Peter. CalmSilver is a brand in preparation, currently without a registered SRL/PFA entity.',
+  privacyText2: 'Information received by email is used to reply and discuss your project. The planned contact address for enquiries and data questions is hello@calmsilver.com; it is being activated.',
+  privacyText3: 'Your page language is remembered in this browser only if you enable preferences in Cookie settings. The hosting platform may process technical data and statistics under its own policies. This information is preliminary; detailed documents will be completed after infrastructure checks and contact activation.'
+});
+
 let currentLanguage = 'ro';
 let lastDialogTrigger = null;
 const languageButtons = document.querySelectorAll('[data-language]');
@@ -151,7 +169,8 @@ function setLanguage(language, updateUrl = true) {
   menuToggle.setAttribute('aria-label', t[menuToggle.getAttribute('aria-expanded') === 'true' ? 'menuClose' : 'menuOpen']);
   copyStatus.textContent = '';
   if (!draftResult.hidden) emailDraft.value = prepareDraft();
-  try { localStorage.setItem('calmsilver.language', language); } catch { /* The switcher also works without storage. */ }
+  try { if (window.CalmSilverConsent.allowsPreferences()) localStorage.setItem('calmsilver.language', language); } catch { /* The switcher also works without storage. */ }
+  window.dispatchEvent(new Event('calmsilver:language'));
   if (updateUrl) {
     const url = new URL(window.location.href);
     if (language === 'en') url.searchParams.set('lang', 'en');
@@ -197,8 +216,11 @@ for (const dialog of document.querySelectorAll('dialog')) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
   dialog.addEventListener('close', () => {
-    document.body.classList.remove('modal-open');
-    if (lastDialogTrigger) lastDialogTrigger.focus();
+    const anotherDialogOpen = [...document.querySelectorAll('dialog')].some(item => item.open);
+    if (!anotherDialogOpen) {
+      document.body.classList.remove('modal-open');
+      if (lastDialogTrigger) lastDialogTrigger.focus();
+    }
   });
 }
 
@@ -235,5 +257,5 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
 let initialLanguage = 'ro';
 const queryLanguage = new URL(window.location.href).searchParams.get('lang');
 if (queryLanguage === 'ro' || queryLanguage === 'en') initialLanguage = queryLanguage;
-else { try { const saved = localStorage.getItem('calmsilver.language'); if (saved === 'en' || saved === 'ro') initialLanguage = saved; } catch { /* Romanian remains the default. */ } }
+else { try { const saved = window.CalmSilverConsent.allowsPreferences() ? localStorage.getItem('calmsilver.language') : null; if (saved === 'en' || saved === 'ro') initialLanguage = saved; } catch { /* Romanian remains the default. */ } }
 setLanguage(initialLanguage, false);
