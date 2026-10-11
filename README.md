@@ -1,5 +1,9 @@
 # CalmSilver
 
+**Live website:** https://calmsilver.richardpeter-andre.chatgpt.site
+
+**English:** https://calmsilver.richardpeter-andre.chatgpt.site/?lang=en
+
 A buildless, bilingual company landing page. Romanian is the default language; English is selected with the language switcher or `?lang=en`. An explicit language query takes priority over the browser-local preference.
 
 ## Contents
@@ -25,7 +29,7 @@ Generated with the built-in Imagegen tool. Prompt: a refined photorealistic silv
 
 ## Publication
 
-The Sites project identity is stored in `.openai/hosting.json`. Source and deployments use the Sites workflow. Custom domain and public audience configuration are separate from this owner-private first version.
+The Sites project identity is stored in `.openai/hosting.json`. Source and deployments use the Sites workflow. The website is publicly accessible without ChatGPT sign-in. The `calmsilver.com` custom domain is not connected yet. GitHub stores the source; the current live website is hosted with Sites.
 
 ## Validation
 
