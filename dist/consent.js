@@ -14,7 +14,7 @@
       save: 'Salvează alegerea', storageUnavailable: 'Alegerea este aplicată pentru această vizită. Browserul nu permite memorarea ei.',
       policyTitle: 'Politica de cookies', policyIntro: 'Operatorul proiectului CalmSilver este Andre Richard-Peter. Această informare descrie stocarea locală utilizată de codul acestei pagini.',
       inventoryTitle: 'Ce păstrăm în browser', consentInventory: 'Stocare locală proprie: alegerea ta, versiunea setărilor și data expirării. Se păstrează maximum 180 de zile, apoi îți cerem din nou alegerea. Este necesară pentru memorarea setărilor.',
-      languageInventory: 'Stocare locală proprie: limba RO sau EN, numai cu acordul pentru preferințe. Este eliminată când retragi acordul sau când acesta expiră, cel târziu la următoarea vizită.',
+      languageInventory: 'Stocare locală proprie: limba RO, EN sau HU, numai cu acordul pentru preferințe. Este eliminată când retragi acordul sau când acesta expiră, cel târziu la următoarea vizită.',
       noTracking: 'Nu adăugăm în codul CalmSilver cookie-uri de analiză sau publicitate. Formularul pregătește un mesaj local; nu păstrează datele introduse în localStorage.',
       platformNotice: 'Platforma de găzduire poate prelucra date tehnice și statistici conform propriilor politici. Panoul CalmSilver nu modifică setările platformei. Inventarul complet al infrastructurii trebuie verificat separat înainte de finalizarea documentelor PDF.',
       withdrawal: 'Poți retrage acordul din Setări cookie-uri în subsolul paginii sau poți șterge stocarea site-ului din browser. Dacă browserul blochează stocarea, alegerile funcționează doar pentru vizita curentă.'
@@ -29,10 +29,25 @@
       save: 'Save choice', storageUnavailable: 'Your choice applies for this visit. Your browser does not allow it to be saved.',
       policyTitle: 'Cookie information', policyIntro: 'The operator of the CalmSilver project is Andre Richard-Peter. This notice describes local storage used by this page’s code.',
       inventoryTitle: 'What we store in your browser', consentInventory: 'First-party local storage: your choice, settings version and expiry date. Kept for up to 180 days, after which we ask again. Necessary to remember your settings.',
-      languageInventory: 'First-party local storage: RO or EN, only with permission for preferences. Removed when permission is withdrawn or expires, no later than your next visit.',
+      languageInventory: 'First-party local storage: RO, EN or HU, only with permission for preferences. Removed when permission is withdrawn or expires, no later than your next visit.',
       noTracking: 'We do not add analytics or advertising cookies to the CalmSilver code. The form prepares a message locally; it does not save your input in localStorage.',
       platformNotice: 'The hosting platform may process technical data and statistics under its own policies. The CalmSilver panel does not change platform settings. The full infrastructure inventory needs separate verification before the PDF documents are finalised.',
       withdrawal: 'Withdraw permission using Cookie settings in the footer, or clear site storage in your browser. If browser storage is blocked, your choices apply for the current visit only.'
+    },
+    hu: {
+      bannerTitle: 'A te beállításaid.', bannerText: 'Eldöntheted, hogy megjegyezzük-e az oldal nyelvét ebben a böngészőben. Az oldal enélkül is működik.',
+      accept: 'Összes elfogadása', reject: 'Opcionálisak elutasítása', customize: 'Testreszabás', close: 'Bezárás', settingsTitle: 'Sütibeállítások',
+      settingsIntro: 'Ezek a beállítások a CalmSilver kódja által használt böngészőbeli tárolást szabályozzák. Az oldal alján bármikor módosíthatod őket.',
+      necessaryTitle: 'Elengedhetetlen', necessaryText: 'Megjegyezzük a döntésedet, hogy ne kelljen minden látogatáskor újra választanod. Ezt nem használjuk hirdetésekhez.', alwaysActive: 'Mindig aktív',
+      preferencesTitle: 'Beállítások megjegyzése', preferencesText: 'Megjegyzi a választott nyelvet ebben a böngészőben. Ha elutasítod, a nyelvválasztó továbbra is működik.',
+      trackingText: 'A CalmSilver kódja nem tartalmaz Google Analytics-integrációt, hirdetési pixeleket vagy más marketingintegrációt. Ezek a beállítások nem szabályozzák a tárhelyszolgáltató saját megoldásait.',
+      save: 'Választás mentése', storageUnavailable: 'A választásod erre a látogatásra érvényes. A böngésződ nem engedi a mentését.',
+      policyTitle: 'Sütikezelési tájékoztató', policyIntro: 'A CalmSilver projekt üzemeltetője Andre Richard-Peter. Ez a tájékoztató azt ismerteti, milyen adatokat tárol az oldal kódja a böngészőben.',
+      inventoryTitle: 'Mit tárolunk a böngésződben?', consentInventory: 'Saját helyi tárolás: a választásod, a beállítások verziója és a lejárat időpontja. Legfeljebb 180 napig őrizzük meg, ezután ismét választást kérünk. A beállításaid megjegyzéséhez szükséges.',
+      languageInventory: 'Saját helyi tárolás: a választott nyelv (RO, EN vagy HU), kizárólag a beállítások megjegyzéséhez adott hozzájárulással. A hozzájárulás visszavonásakor vagy lejáratakor, legkésőbb a következő látogatáskor töröljük.',
+      noTracking: 'A CalmSilver kódjához nem adunk analitikai vagy hirdetési sütiket. Az űrlap helyben készít elő egy üzenetet; a megadott adatokat nem menti a localStorage-ba.',
+      platformNotice: 'A tárhelyszolgáltató a saját szabályzata szerint kezelhet technikai adatokat és statisztikákat. A CalmSilver beállítási felülete nem módosítja a szolgáltató beállításait. A PDF-dokumentumok véglegesítése előtt külön fel kell mérni a teljes infrastruktúrát.',
+      withdrawal: 'A hozzájárulásodat az oldal alján található Sütibeállításokban vonhatod vissza, vagy törölheted az oldal böngészőben tárolt adatait. Ha a böngésző letiltja a tárolást, a választásaid csak az aktuális látogatásra érvényesek.'
     }
   };
   let choice = null;
@@ -40,7 +55,7 @@
   const settings = document.getElementById('cookies-settings-dialog');
   const preference = document.getElementById('cookie-preferences');
   const status = document.getElementById('cookie-save-status');
-  function language() { return document.documentElement.lang === 'en' ? 'en' : 'ro'; }
+  function language() { const lang = document.documentElement.lang; return Object.hasOwn(strings, lang) ? lang : 'ro'; }
   function removeLanguage() { try { localStorage.removeItem('calmsilver.language'); } catch { /* In-memory settings still work. */ } }
   function valid(value) {
     return value && value.version === VERSION && typeof value.preferences === 'boolean' && Number.isFinite(value.updatedAt) && Number.isFinite(value.expiresAt) && value.updatedAt <= Date.now() && value.expiresAt > Date.now() && value.expiresAt - value.updatedAt <= DURATION;

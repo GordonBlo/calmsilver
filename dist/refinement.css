@@ -172,3 +172,9 @@
   .email-contact-row { gap: 8px; }
   .email-contact-row .email-link { font-size: clamp(20px, 6vw, 24px); gap: 8px; }
 }
+
+/* Keep all three language choices within the existing compact mobile header. */
+.language-switch { flex-shrink: 0; }
+@media (max-width: 390px) {
+  .language-switch button { min-width: 24px; padding-inline: 3px; }
+}

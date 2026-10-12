@@ -40,7 +40,7 @@ const translations = {
     faqLabel: 'Câteva răspunsuri', faqTitle1: 'Înainte de', faqTitle2: 'prima conversație.',
     faq1Question: 'Pentru ce tipuri de afaceri creați website-uri?', faq1Answer: 'Pentru afaceri mici, profesioniști independenți și firme de servicii care au nevoie de o prezență online clară. Pornim de la publicul și obiectivele fiecărui proiect.',
     faq2Question: 'Cât durează și cât costă un proiect?', faq2Answer: 'Depinde de conținut, numărul de pagini și funcționalități. După o discuție inițială, stabilim o propunere cu livrabile, preț și calendar, înainte de a începe lucrul.',
-    faq3Question: 'Pot avea un website în mai multe limbi?', faq3Answer: 'Da. Putem organiza website-ul în română și engleză, cu un selector de limbă simplu. Stabilim împreună limbile și conținutul potrivit publicului tău.',
+    faq3Question: 'Pot avea un website în mai multe limbi?', faq3Answer: 'Da. Putem organiza website-ul în română, engleză și maghiară, cu un selector de limbă simplu. Stabilim împreună limbile și conținutul potrivit publicului tău.',
     faq4Question: 'Ce trebuie să pregătesc pentru început?', faq4Answer: 'O scurtă descriere a afacerii, serviciile principale și câteva exemple de website-uri care îți plac. Dacă ai deja un logo, un domeniu sau fotografii, le putem integra în direcția proiectului.',
     contactEyebrow: 'O conversație este un început bun.', contactTitle1: 'Ai o idee?', contactTitle2: 'Să-i dăm formă.', contactText: 'Spune-ne pe scurt ce vrei să construiești. Pornim de acolo.',
     contactCta: 'Spune-ne despre proiect', contactEmailLabel: 'Sau scrie-ne direct', contactLocation: 'Oradea, România · Colaborări la distanță',
@@ -98,7 +98,7 @@ const translations = {
     faqLabel: 'A few answers', faqTitle1: 'Before the', faqTitle2: 'first conversation.',
     faq1Question: 'What kinds of businesses do you build websites for?', faq1Answer: 'Small businesses, independent professionals and service companies that need a clear online presence. We start with the audience and goals of each project.',
     faq2Question: 'How long does a project take, and what does it cost?', faq2Answer: 'That depends on the content, number of pages and functionality. After an initial conversation, we prepare a proposal with deliverables, pricing and a timeline before work begins.',
-    faq3Question: 'Can my website have more than one language?', faq3Answer: 'Yes. We can organise your website in Romanian and English with a simple language switcher. We agree on the languages and content that suit your audience.',
+    faq3Question: 'Can my website have more than one language?', faq3Answer: 'Yes. We can organise your website in Romanian, English and Hungarian with a simple language switcher. We agree on the languages and content that suit your audience.',
     faq4Question: 'What should I prepare to get started?', faq4Answer: 'A short description of your business, your main services and a few websites you like. If you already have a logo, domain or photographs, we can bring them into the project.',
     contactEyebrow: 'A conversation is a good beginning.', contactTitle1: 'Have an idea?', contactTitle2: 'Let’s give it form.', contactText: 'Tell us briefly what you would like to build. We’ll start there.',
     contactCta: 'Tell us about your project', contactEmailLabel: 'Or write to us directly', contactLocation: 'Oradea, Romania · Working remotely',
@@ -128,6 +128,10 @@ Object.assign(translations.ro, {
   privacyText2: 'Informațiile primite prin e-mail sunt folosite pentru a răspunde și a discuta proiectul. Adresa planificată pentru contact și întrebări despre date este hello@calmsilver.com; aceasta este în curs de activare.',
   privacyText3: 'Limba paginii este memorată în browser numai dacă activezi preferințele în Setări cookie-uri. Platforma de găzduire poate prelucra date tehnice și statistici conform propriilor politici. Informarea de aici este preliminară; documentele detaliate vor fi completate după verificarea infrastructurii și activarea contactului.'
 });
+Object.assign(translations.ro, {
+  salSquareAlt: 'ANPC — Protecția Consumatorilor și Soluționarea Alternativă a Litigiilor',
+  salHorizontalAlt: 'ANPC — Soluționarea Alternativă a Litigiilor'
+});
 Object.assign(translations.en, {
   privacyLink: 'Privacy information', cookiesLink: 'Cookie information', cookieSettings: 'Cookie settings',
   operatorLabel: 'CalmSilver is a brand project by Andre Richard-Peter.', registrationPending: 'Business registration is being prepared.',
@@ -136,6 +140,77 @@ Object.assign(translations.en, {
   privacyText2: 'Information received by email is used to reply and discuss your project. The planned contact address for enquiries and data questions is hello@calmsilver.com; it is being activated.',
   privacyText3: 'Your page language is remembered in this browser only if you enable preferences in Cookie settings. The hosting platform may process technical data and statistics under its own policies. This information is preliminary; detailed documents will be completed after infrastructure checks and contact activation.'
 });
+Object.assign(translations.en, {
+  salSquareAlt: 'ANPC — Consumer protection and alternative dispute resolution',
+  salHorizontalAlt: 'ANPC — Alternative dispute resolution'
+});
+
+translations.hu = {
+  pageTitle: 'CalmSilver — Átgondolt weboldalak és digitális termékek.',
+  pageDescription: 'A CalmSilver átgondolt weboldalakat és digitális termékeket készít vállalkozásoknak. Kifinomult megjelenés, átlátható felületek és megbízható technikai alapok.',
+  ogTitle: 'CalmSilver — Tudatos digitális megoldások.',
+  ogDescription: 'Átgondolt weboldalak. Valódi értéket adó digitális termékek.',
+  skip: 'Ugrás a tartalomra', navLabel: 'Fő navigáció', mobileNavLabel: 'Mobil navigáció', languageLabel: 'Az oldal nyelve',
+  navServices: 'Szolgáltatások', navWork: 'Projektek', navApproach: 'Munkamódszer', navContact: 'Beszéljünk', menuOpen: 'Menü megnyitása', menuClose: 'Menü bezárása',
+  heroEyebrow: 'Weboldalak és digitális termékek', heroTitle1: 'Digitális jelenlét.', heroTitle2: 'Valódi értékkel.',
+  heroDescription: 'Átgondolt weboldalak és digitális megoldások olyan vállalkozásoknak, amelyeknek fontos az átláthatóság, a minőség és a részletek.',
+  heroCta: 'Alkossunk valami értékeset', heroSecondary: 'Nézd meg a projektjeinket', heroNote: 'Egy világos ötlet. Egy megjelenés, amely kiemeli az értékét.',
+  heroAlt: 'Ívelt formájú ezüstszobor kőtalapzaton, természetes fényben.', artLabel: 'A lényeg a részletekben rejlik.', artCaption: 'Forma. Funkció. Egyensúly.',
+  principle1: 'Tudatos tervezés', principle2: 'Célhoz illő technológia', principle3: 'Figyelem a részletekre', principle4: 'Természetes használat',
+  introLabel: 'A CalmSilverről', introTitle1: 'A jó megoldások', introTitle2: 'magukért beszélnek.',
+  introLead: 'Egy weboldalnak már az első beszélgetés előtt bizalmat kell ébresztenie.',
+  introText: 'A CalmSilver a gondos tervezést és a webfejlesztést ötvözi, hogy az ötletekből átlátható digitális élmények szülessenek. Legyen szó egy vállalkozás bemutatkozó oldaláról vagy egy saját szoftvertermékről, mindig azok igényeiből indulunk ki, akik használni fogják.', introLink: 'Így dolgozunk',
+  servicesLabel: 'Amit közösen megvalósíthatunk', servicesTitle1: 'Az ötlettől', servicesTitle2: 'az élményig.', servicesIntro: 'Egyértelmű cél. Hozzá illő megoldás. Minden részletnek megvan a szerepe.',
+  service1Title: 'Bemutatkozó weboldalak', service1Tags: 'Arculat · Átláthatóság · Jelenlét',
+  service1Description: 'Bemutatkozó weboldalak és céloldalak, amelyek világosan megmutatják, mivel foglalkozol, minden képernyőn jól mutatnak, és megkönnyítik az ügyfelek következő lépését.', service1Link: 'Beszéljünk a weboldaladról',
+  service2Title: 'Webalkalmazások', service2Tags: 'Funkció · Felépítés · Használhatóság',
+  service2Description: 'Valós munkafolyamatokra épülő digitális eszközök: a feladatok szervezésére, az információk kezelésére és a mindennapi munka egyszerűsítésére.', service2Link: 'Beszéljünk a webalkalmazásodról',
+  service3Title: 'Karbantartás és fejlesztés', service3Tags: 'Folytonosság · Finomítás · Támogatás',
+  service3Description: 'Tartalmi frissítések, a megjelenés finomítása és további fejlesztések. Már az elején egyeztetjük, mire lesz szükséged az indulás után, és hogyan tartjuk naprakészen az oldalt.', service3Link: 'Beszéljünk a frissítésekről',
+  workLabel: 'Saját projektjeink', workTitle1: 'Ötletek, amelyek', workTitle2: 'formát öltenek.',
+  workIntro: 'Ízelítő abból, amin dolgozunk: praktikus alkalmazások, átlátható felületek és gondosan felépített működés.',
+  buildflowAlt: 'A BuildFlow szemléltető felülete projektekkel és feladatokkal.', marginpilotAlt: 'A MarginPilot szemléltető felülete ár- és árrésszámítással.',
+  previewOverview: 'Áttekintés', previewProjects: 'Projektek', previewTasks: 'Feladatok', previewWorkspace: 'A MUNKATERÜLETED', previewDemo: 'Demó',
+  previewOrganized: 'Minden egy helyen', previewProgress: 'Egy lépéssel előrébb', previewProject1: 'Bemutatkozó weboldal', previewProject2: 'Digitális arculat',
+  conceptCaption: 'Szemléltető előnézet', buildflowType: 'Webalkalmazás · Portfóliódemó',
+  buildflowDescription: 'Alkalmazás projektek és feladatok szervezésére, áttekintő felülettel, bejelentkezéssel és a felhasználók adatainak elkülönítésével.', githubLink: 'Nézd meg a GitHub-portfóliót',
+  previewEstimate: 'Kalkuláció', previewPricing: 'TISZTA SZÁMOK AZ AJÁNLAT ELŐTT', previewMarginTitle: 'Megfelelő ár.\nVédett árrés.',
+  previewCost: 'Teljes költség', previewMargin: 'Célzott árrés', previewPrice: 'Ajánlati ár', marginpilotType: 'Saját termék · Fejlesztés alatt',
+  marginpilotDescription: 'Szoftver építőipari és szolgáltató vállalkozásoknak: átláthatóbb költségek, kiszámított árak és a nyereséget szem előtt tartó ajánlatok.', marginpilotLink: 'Tudj meg többet a termékről',
+  approachLabel: 'Így dolgozunk', approachTitle1: 'Az első beszélgetéstől', approachTitle2: 'az első kattintásig.',
+  approachIntro: 'Könnyen követhető folyamat, egyértelmű döntésekkel és a megfelelő pillanatban adott visszajelzésekkel.',
+  step1Title: 'Megértjük', step1Text: 'Beszélünk a vállalkozásodról, a célközönségedről és a céljaidról. Egyeztetjük a tartalmat, a funkciókat, a költségkeretet és azt, mitől lesz jó az eredmény.',
+  step2Title: 'Megépítjük', step2Text: 'A közösen kijelölt irányból megtervezett felület és működő kód lesz. Megnézel egy konkrét változatot, visszajelzést adsz, mi pedig finomítjuk a megoldást.',
+  step3Title: 'Elindítjuk', step3Text: 'Ellenőrizzük az oldalakat, a hivatkozásokat és a megjelenést különböző képernyőkön. Előkészítjük a közzétételt, és egyeztetjük a karbantartás lépéseit.', approachSignoff: 'Kevesebb zaj. Több figyelem arra, ami számít.',
+  faqLabel: 'Néhány válasz', faqTitle1: 'Az első beszélgetés', faqTitle2: 'előtt.',
+  faq1Question: 'Milyen vállalkozásoknak készítetek weboldalakat?', faq1Answer: 'Kisvállalkozásoknak, önálló szakembereknek és szolgáltató cégeknek, amelyeknek átlátható online jelenlétre van szükségük. Minden projektnél a célközönségből és a kitűzött célokból indulunk ki.',
+  faq2Question: 'Mennyi ideig tart egy projekt, és mennyibe kerül?', faq2Answer: 'Ez a tartalomtól, az oldalak számától és a funkcióktól függ. Az első beszélgetés után, még a munka megkezdése előtt rögzítjük az átadandó elemeket, az árat és az ütemezést.',
+  faq3Question: 'Lehet többnyelvű a weboldalam?', faq3Answer: 'Igen. A weboldalt román, angol és magyar nyelven is elkészíthetjük, egyszerű nyelvválasztóval. Közösen egyeztetjük, mely nyelvek és tartalmak illenek a célközönségedhez.',
+  faq4Question: 'Mivel készüljek az első beszélgetésre?', faq4Answer: 'A vállalkozásod rövid bemutatásával, a fő szolgáltatásaiddal és néhány olyan weboldal példájával, amely tetszik. Ha már van logód, domained vagy saját fotód, ezeket is beépíthetjük a tervbe.',
+  contactEyebrow: 'Egy beszélgetés jó kezdet.', contactTitle1: 'Van egy ötleted?', contactTitle2: 'Adjunk neki formát.', contactText: 'Írd le röviden, mit szeretnél megvalósítani. Innen indulunk.',
+  contactCta: 'Mesélj a projektedről', contactEmailLabel: 'Vagy írj nekünk közvetlenül', contactLocation: 'Nagyvárad, Románia · Távoli együttműködés',
+  copyEmail: 'E-mail-cím másolása', emailCopied: 'E-mail-cím kimásolva.', emailCopyFallback: 'Jelöld ki a címet, és másold ki kézzel.', emailAddressLabel: 'E-mail-cím',
+  footerTagline: 'Tudatos digitális megoldások.', backTop: 'Vissza az oldal tetejére', rights: 'Minden jog fenntartva.', privacyLink: 'Adatvédelmi tájékoztató', footerNote: 'Gondosan megalkotva.',
+  close: 'Bezárás', briefEyebrow: 'Az első lépés', briefTitle: 'Mesélj az ötletedről.', briefIntro: 'Néhány részlet is elég ahhoz, hogy elinduljon a beszélgetés.',
+  formName: 'Neved', formBusiness: 'Vállalkozásod (nem kötelező)', namePlaceholder: 'Hogy hívnak?', businessPlaceholder: 'A vállalkozás neve',
+  formService: 'Mire gondoltál?', optionWebsite: 'Bemutatkozó weboldal', optionWebapp: 'Webalkalmazás', optionMaintenance: 'Frissítés vagy továbbfejlesztés', optionMarginpilot: 'MarginPilot', optionOther: 'Szeretnék egyeztetni',
+  formMessage: 'Néhány szó a projektről', messagePlaceholder: 'Mit szeretnél megvalósítani, és kinek?',
+  formNote: 'A gomb előkészít egy üzenetet az e-mail-alkalmazásodban. Ott átnézheted és elküldheted. Ez az űrlap nem küldi el és nem menti a szerverre az adataidat.',
+  formSubmit: 'E-mail előkészítése', draftReady: 'Az üzenet elkészült. Ha az e-mail-alkalmazás nem nyílt meg, másold ki az alábbi szöveget, és küldd el a hello@calmsilver.com címre.', draftLabel: 'Előkészített üzenet', copyDraft: 'Üzenet másolása', copied: 'Üzenet kimásolva.', copyFallback: 'Jelöld ki a fenti szöveget, és másold ki kézzel.',
+  emailSubject: 'CalmSilver — Egyeztetés egy projektről', emailGreeting: 'Szia, CalmSilver!', emailName: 'Név', emailBusiness: 'Vállalkozás', emailService: 'Projekt', emailMessage: 'A projektről',
+  privacyTitle: 'A személyes adataidról.',
+  privacyText1: 'A projektűrlap helyben, a böngészőben készít elő egy üzenetet, majd megnyitja az e-mail-alkalmazásodat. A megadott adatok csak akkor jutnak el a CalmSilverhez, amikor te elküldöd az e-mailt. Az űrlap nem menti őket adatbázisba.',
+  privacyText2: 'Az e-mailben kapott információkat a válaszadáshoz és a projekt megbeszéléséhez használjuk. A tervezett kapcsolattartási cím, amelyen az adataiddal kapcsolatos kérdéseket is fogadjuk, a hello@calmsilver.com; aktiválása folyamatban van.',
+  privacyText3: 'Az oldal nyelvét csak akkor jegyzi meg a böngésző, ha ezt engedélyezed a Sütibeállításokban. A tárhelyszolgáltató a saját szabályzata szerint kezelhet technikai adatokat és statisztikákat. Ez előzetes tájékoztató; a részletes dokumentumokat az infrastruktúra ellenőrzése és a kapcsolattartási cím aktiválása után egészítjük ki.',
+  hostingPrivacy: 'A tárhelyszolgáltató adatvédelmi tájékoztatója',
+  cookiesLink: 'Sütikezelési tájékoztató', cookieSettings: 'Sütibeállítások',
+  operatorLabel: 'A CalmSilver márkát Andre Richard-Peter építi.', registrationPending: 'A vállalkozás bejegyzése előkészítés alatt áll.',
+  emailPending: 'Az e-mail-cím aktiválása folyamatban van.',
+  privacyIdentity: 'Adatkezelő: Andre Richard-Peter. A CalmSilver kialakítás alatt álló márka; jelenleg nincs mögötte bejegyzett SRL/PFA vállalkozás.',
+  salSquareAlt: 'ANPC — Fogyasztóvédelem és alternatív vitarendezés', salHorizontalAlt: 'ANPC — Alternatív vitarendezés'
+};
+
+const languageLocales = { ro: 'ro_RO', en: 'en_GB', hu: 'hu_HU' };
 
 let currentLanguage = 'ro';
 let lastDialogTrigger = null;
@@ -174,7 +249,7 @@ function setLanguage(language, updateUrl = true) {
   document.querySelector('meta[name="description"]').content = t.pageDescription;
   document.querySelector('meta[property="og:title"]').content = t.ogTitle;
   document.querySelector('meta[property="og:description"]').content = t.ogDescription;
-  document.querySelector('meta[property="og:locale"]').content = language === 'ro' ? 'ro_RO' : 'en_GB';
+  document.querySelector('meta[property="og:locale"]').content = languageLocales[language];
   for (const node of document.querySelectorAll('[data-i18n]')) node.textContent = t[node.dataset.i18n];
   for (const [dataAttribute, attribute] of [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt'], ['data-i18n-placeholder', 'placeholder'], ['data-i18n-title', 'title']]) {
     for (const node of document.querySelectorAll(`[${dataAttribute}]`)) node.setAttribute(attribute, t[node.getAttribute(dataAttribute)]);
@@ -188,7 +263,7 @@ function setLanguage(language, updateUrl = true) {
   window.dispatchEvent(new Event('calmsilver:language'));
   if (updateUrl) {
     const url = new URL(window.location.href);
-    if (language === 'en') url.searchParams.set('lang', 'en');
+    if (language !== 'ro') url.searchParams.set('lang', language);
     else url.searchParams.delete('lang');
     try { window.history.replaceState(null, '', url); } catch { /* File previews may restrict URL changes. */ }
   }
@@ -298,6 +373,6 @@ emailCopyButton.addEventListener('click', async () => {
 document.getElementById('year').textContent = String(new Date().getFullYear());
 let initialLanguage = 'ro';
 const queryLanguage = new URL(window.location.href).searchParams.get('lang');
-if (queryLanguage === 'ro' || queryLanguage === 'en') initialLanguage = queryLanguage;
-else { try { const saved = window.CalmSilverConsent.allowsPreferences() ? localStorage.getItem('calmsilver.language') : null; if (saved === 'en' || saved === 'ro') initialLanguage = saved; } catch { /* Romanian remains the default. */ } }
+if (Object.hasOwn(translations, queryLanguage)) initialLanguage = queryLanguage;
+else { try { const saved = window.CalmSilverConsent.allowsPreferences() ? localStorage.getItem('calmsilver.language') : null; if (Object.hasOwn(translations, saved)) initialLanguage = saved; } catch { /* Romanian remains the default. */ } }
 setLanguage(initialLanguage, false);
