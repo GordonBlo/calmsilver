@@ -11,9 +11,10 @@ A buildless, bilingual company landing page. Romanian is the default language; E
 - `dist/index.html`: semantic landing page, project previews, FAQs and accessible native dialogs.
 - `dist/styles.css`: responsive editorial design with reduced-motion support.
 - `dist/app.js`: Romanian/English copy, navigation, email draft and clipboard fallback.
-- `dist/assets/silver-sculpture.webp`: original AI-generated website artwork, 99 KB.
+- `dist/refinement.css`: approved spacing refinements, centred headline and soft tonal shadow.
 - `dist/assets/favicon.svg`: original vector brand mark.
-- `dist/assets/social-cover.jpg`: sharing artwork.
+- `dist/consent.js`: application consent and language preference controls.
+- `dist/assets/anpc-sal.jpg` and `dist/assets/anpc-sal-square.jpg`: supplied ANPC/SAL footer images.
 
 No package installation or build step is needed. Deploy `dist` as static files.
 
@@ -23,9 +24,9 @@ The contact dialog composes an email to `hello@calmsilver.com`. The visitor revi
 
 BuildFlow and MarginPilot are identified as the founder's own projects. MarginPilot is marked in development. Interface previews are labelled conceptual. There are no invented customers, testimonials, prices or performance guarantees.
 
-## Artwork
+## Design
 
-Generated with the built-in Imagegen tool. Prompt: a refined photorealistic silver ribbon sculpture shaped as a softly twisted continuous loop, subtly brushed metal and mirror highlights, on an ivory limestone cylindrical plinth, soft daylight, warm off-white architectural studio, quiet luxury, portrait composition, no lettering, people or watermark. Converted to WebP for the website; the original artwork is preserved.
+The approved 12 October 2026 revision preserves the original colour palette, font families, logo, copy and section order. The generated sculpture and its sharing image have been removed. The opening is text-led, with a larger centred headline and a soft tonal shadow. Decorative details are reduced; the supplied SAL images are about 8–9% smaller. The standalone draft was reviewed before publication.
 
 ## Publication
 
@@ -37,7 +38,7 @@ See `VALIDATION.md` for verification results and limits.
 
 ## Legal and consent status (11 October 2026)
 
-CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The planned hello@calmsilver.com mailbox is being activated. The footer provides both supplied ANPC/SAL images, aligned left and right and linked to the SAL information page and permanent cookie settings in Romanian and English.
+CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The website uses hello@calmsilver.com. Mail delivery depends on the external mailbox setup; the visible activation notice was removed in the approved design revision. The footer provides both supplied ANPC/SAL images, aligned left and right and linked to the SAL information page and permanent cookie settings in Romanian and English.
 
 The site code uses calmsilver.consent (180-day local consent record) and calmsilver.language (optional language preference). Language storage is disabled before permission and deleted on withdrawal or expiry. No site analytics or advertising integration is installed. The panel controls only CalmSilver application storage; hosting mechanisms require separate verification.
 

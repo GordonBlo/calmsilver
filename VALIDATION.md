@@ -8,9 +8,9 @@
 - External links have `noopener noreferrer`.
 - Interaction checks using DOM test doubles: Romanian default; English switching; translated page metadata, ARIA labels and placeholders; mobile navigation; dialog handlers; email draft preparation and encoding; clipboard success and denied-access fallback.
 - Explicit `?lang=ro` / `?lang=en` overrides a saved language. Blocked local storage does not stop the page from working.
-- Image inspected visually and converted to a 99 KB WebP. Sharing artwork exported at 1200 × 630.
+- The sculpture and its sharing artwork were removed in the approved 12 October revision.
 - Responsive CSS reviewed at 1600, 1150, 900, 700 and 390 pixel breakpoints, including a 320 pixel layout allowance.
-- Reduced-motion preferences supported. Essential content remains visible without animations or JavaScript. The planned email address remains visible without JavaScript, marked as being activated.
+- Reduced-motion preferences supported. Essential content remains visible without animations or JavaScript. The email address remains visible without JavaScript.
 - CSS delimiters checked. Source has no external script or font dependencies.
 
 ## Verification limits
@@ -34,3 +34,13 @@ The Sites audience is public. The custom `calmsilver.com` domain is not connecte
 - Both supplied images are present in the footer: the square image on the left and the horizontal image on the right. Both link to https://reclamatiisal.anpc.ro/.
 - Image proportions are preserved. Responsive sizing retains left/right placement on narrow screens; only blank margins of the horizontal original are clipped.
 - Both local assets and both links verified in HTML. Rendered browser QA remains unavailable.
+
+## Approved design revision — 12 October 2026
+
+- All production dist files match the approved draft byte for byte.
+- Original palette, font families, logo, copy and section order preserved.
+- Hero picture and sharing artwork removed; larger centred title with a soft CSS shadow added.
+- Both SAL images remain on their original left/right sides with their links; sizes reduced by about 8–9%.
+- Visible email activation status removed from the contact section and form.
+- JavaScript, markup, links, translations and consent/contact interactions checked.
+- Browser rendering QA remains unavailable in this session. The user reviewed the standalone draft and approved publication.
