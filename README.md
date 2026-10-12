@@ -20,6 +20,8 @@ No package installation or build step is needed. Deploy `dist` as static files.
 
 ## Contact flow
 
+The contact address has a subtle clipboard icon. It copies only `hello@calmsilver.com`, with a brief confirmation in the selected language. If clipboard access is unavailable, it attempts a selected-field copy, then offers manual copying. The original email link remains available.
+
 The contact dialog composes an email to `hello@calmsilver.com`. The visitor reviews and sends it using their own mail client. The form also displays a copyable draft when no mail client is configured. It makes no API submission, saves no form data and does not report a message as sent. Receiving emails depends on the actual mailbox configuration, which is outside this website.
 
 BuildFlow and MarginPilot are identified as the founder's own projects. MarginPilot is marked in development. Interface previews are labelled conceptual. There are no invented customers, testimonials, prices or performance guarantees.

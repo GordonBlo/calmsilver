@@ -37,10 +37,18 @@ The Sites audience is public. The custom `calmsilver.com` domain is not connecte
 
 ## Approved design revision — 12 October 2026
 
-- All production dist files match the approved draft byte for byte.
+- The published design revision matched the approved draft byte for byte.
 - Original palette, font families, logo, copy and section order preserved.
 - Hero picture and sharing artwork removed; larger centred title with a soft CSS shadow added.
 - Both SAL images remain on their original left/right sides with their links; sizes reduced by about 8–9%.
 - Visible email activation status removed from the contact section and form.
 - JavaScript, markup, links, translations and consent/contact interactions checked.
 - Browser rendering QA remains unavailable in this session. The user reviewed the standalone draft and approved publication.
+
+## Contact copy button — 12 October 2026
+
+- A separate keyboard-accessible icon button copies only `hello@calmsilver.com`; it does not launch a mail application.
+- Romanian and English labels, hover titles and live confirmations are translated. Successful copying briefly shows a check mark.
+- DOM checks cover clipboard success, denied/missing Clipboard API, selected-field fallback, manual selection, confirmation timeout and language-switch reset.
+- The address stays a normal email link and remains visible without JavaScript. The new row wraps on limited widths; its narrow-screen font allowance fits the original 320 pixel page width.
+- Node syntax, markup/assets and CSS delimiter checks passed. Rendered browser QA remains unavailable.

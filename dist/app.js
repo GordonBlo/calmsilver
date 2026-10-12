@@ -44,6 +44,7 @@ const translations = {
     faq4Question: 'Ce trebuie să pregătesc pentru început?', faq4Answer: 'O scurtă descriere a afacerii, serviciile principale și câteva exemple de website-uri care îți plac. Dacă ai deja un logo, un domeniu sau fotografii, le putem integra în direcția proiectului.',
     contactEyebrow: 'O conversație este un început bun.', contactTitle1: 'Ai o idee?', contactTitle2: 'Să-i dăm formă.', contactText: 'Spune-ne pe scurt ce vrei să construiești. Pornim de acolo.',
     contactCta: 'Spune-ne despre proiect', contactEmailLabel: 'Sau scrie-ne direct', contactLocation: 'Oradea, România · Colaborări la distanță',
+    copyEmail: 'Copiază adresa de e-mail', emailCopied: 'Adresă copiată.', emailCopyFallback: 'Selectează adresa și copiaz-o manual.', emailAddressLabel: 'Adresa de e-mail',
     footerTagline: 'Digital, cu intenție.', backTop: 'Înapoi sus', rights: 'Toate drepturile rezervate.', privacyLink: 'Confidențialitate', footerNote: 'Creat cu grijă.',
     close: 'Închide', briefEyebrow: 'Primul pas', briefTitle: 'Povestește-ne ideea ta.', briefIntro: 'Câteva detalii sunt suficiente pentru a începe o conversație.',
     formName: 'Numele tău', formBusiness: 'Afacerea ta (opțional)', namePlaceholder: 'Cum te numești?', businessPlaceholder: 'Numele afacerii',
@@ -101,6 +102,7 @@ const translations = {
     faq4Question: 'What should I prepare to get started?', faq4Answer: 'A short description of your business, your main services and a few websites you like. If you already have a logo, domain or photographs, we can bring them into the project.',
     contactEyebrow: 'A conversation is a good beginning.', contactTitle1: 'Have an idea?', contactTitle2: 'Let’s give it form.', contactText: 'Tell us briefly what you would like to build. We’ll start there.',
     contactCta: 'Tell us about your project', contactEmailLabel: 'Or write to us directly', contactLocation: 'Oradea, Romania · Working remotely',
+    copyEmail: 'Copy email address', emailCopied: 'Email copied.', emailCopyFallback: 'Select the address and copy it manually.', emailAddressLabel: 'Email address',
     footerTagline: 'Digital, with intention.', backTop: 'Back to top', rights: 'All rights reserved.', privacyLink: 'Privacy', footerNote: 'Made with care.',
     close: 'Close', briefEyebrow: 'The first step', briefTitle: 'Tell us about your idea.', briefIntro: 'A few details are enough to start a conversation.',
     formName: 'Your name', formBusiness: 'Your business (optional)', namePlaceholder: 'What is your name?', businessPlaceholder: 'Business name',
@@ -144,6 +146,18 @@ const briefForm = document.getElementById('brief-form');
 const draftResult = document.getElementById('draft-result');
 const emailDraft = document.getElementById('email-draft');
 const copyStatus = document.getElementById('copy-status');
+const contactEmail = document.getElementById('contact-email');
+const emailCopyButton = document.getElementById('copy-email');
+const emailCopyStatus = document.getElementById('email-copy-status');
+const emailCopyFallback = document.getElementById('email-copy-fallback');
+let emailCopyTimer;
+
+function resetEmailCopy() {
+  window.clearTimeout(emailCopyTimer);
+  emailCopyButton.dataset.copied = 'false';
+  emailCopyStatus.textContent = '';
+  emailCopyFallback.hidden = true;
+}
 
 function setMenuOpen(open) {
   mobileNav.hidden = !open;
@@ -162,12 +176,13 @@ function setLanguage(language, updateUrl = true) {
   document.querySelector('meta[property="og:description"]').content = t.ogDescription;
   document.querySelector('meta[property="og:locale"]').content = language === 'ro' ? 'ro_RO' : 'en_GB';
   for (const node of document.querySelectorAll('[data-i18n]')) node.textContent = t[node.dataset.i18n];
-  for (const [dataAttribute, attribute] of [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt'], ['data-i18n-placeholder', 'placeholder']]) {
+  for (const [dataAttribute, attribute] of [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt'], ['data-i18n-placeholder', 'placeholder'], ['data-i18n-title', 'title']]) {
     for (const node of document.querySelectorAll(`[${dataAttribute}]`)) node.setAttribute(attribute, t[node.getAttribute(dataAttribute)]);
   }
   for (const button of languageButtons) button.setAttribute('aria-pressed', String(button.dataset.language === language));
   menuToggle.setAttribute('aria-label', t[menuToggle.getAttribute('aria-expanded') === 'true' ? 'menuClose' : 'menuOpen']);
   copyStatus.textContent = '';
+  resetEmailCopy();
   if (!draftResult.hidden) emailDraft.value = prepareDraft();
   try { if (window.CalmSilverConsent.allowsPreferences()) localStorage.setItem('calmsilver.language', language); } catch { /* The switcher also works without storage. */ }
   window.dispatchEvent(new Event('calmsilver:language'));
@@ -252,6 +267,33 @@ document.getElementById('copy-draft').addEventListener('click', async () => {
     emailDraft.select();
     copyStatus.textContent = translations[currentLanguage].copyFallback;
   }
+});
+emailCopyButton.addEventListener('click', async () => {
+  resetEmailCopy();
+  const address = contactEmail.getAttribute('href').slice('mailto:'.length);
+  try {
+    await navigator.clipboard.writeText(address);
+  } catch {
+    // Older browsers can copy a selected field; otherwise leave it ready for manual copying.
+    emailCopyFallback.value = address;
+    emailCopyFallback.hidden = false;
+    emailCopyFallback.focus();
+    emailCopyFallback.select();
+    let copied = false;
+    try { copied = document.execCommand('copy'); } catch { /* Manual copying remains available. */ }
+    if (!copied) {
+      emailCopyStatus.textContent = translations[currentLanguage].emailCopyFallback;
+      return;
+    }
+    emailCopyFallback.hidden = true;
+    emailCopyButton.focus();
+  }
+  emailCopyButton.dataset.copied = 'true';
+  emailCopyStatus.textContent = translations[currentLanguage].emailCopied;
+  emailCopyTimer = window.setTimeout(() => {
+    emailCopyButton.dataset.copied = 'false';
+    emailCopyStatus.textContent = '';
+  }, 2500);
 });
 document.getElementById('year').textContent = String(new Date().getFullYear());
 let initialLanguage = 'ro';
