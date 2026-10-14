@@ -11,6 +11,7 @@ The owner approved publishing the reviewed compliance update on 14 October 2026,
 - `legal/policies.json`: single authored source for both policies in all three languages.
 - `scripts/generate-legal.py`: generates six static policy pages, matching Romanian modal content and `dist/legal.js` for language changes. Edit the JSON, then regenerate.
 - Policy anchors retain the existing dialogs and work as real page links without JavaScript. Static policy pages have ordinary language links.
+- A fixed bottom-right cookie icon reopens the existing settings dialog in the selected language. Static policy pages link back to those settings. It stays available after accepting or rejecting, with room below the consent banner and at the end of the page.
 - `dist/consent.js`: controls the consent record and optional language preference. Hosting security cookies are disclosed separately and have no misleading optional switch.
 - `review/CalmSilver-GDPR-review.html`: offline review copy, outside the deployed directory. Browser storage in this file is separate from production.
 

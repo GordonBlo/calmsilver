@@ -12,3 +12,32 @@
   font-size: 9px;
   line-height: 1.5;
 }
+
+/* Persistent access to the existing preferences, independent of page scrolling. */
+.cookie-settings-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 31;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #adb4a4;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 3px 14px #272b291c;
+}
+.cookie-settings-fab:hover { background: var(--paper-dark); }
+.cookie-settings-fab svg { display: block; }
+.cookie-banner {
+  bottom: 76px;
+  bottom: calc(max(16px, env(safe-area-inset-bottom)) + 60px);
+  max-height: min(60dvh, calc(100dvh - 104px));
+  overflow-y: auto;
+}
+.site-footer, .legal-page-footer { padding-bottom: 80px; }

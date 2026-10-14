@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 DATA = json.loads((ROOT / 'legal/policies.json').read_text())
 LANGUAGES = {'ro': 'Română', 'en': 'English', 'hu': 'Magyar'}
+COOKIE_ICON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 12.5a4.5 4.5 0 0 1-5-5 4.5 4.5 0 0 1-4-4 9 9 0 1 0 9 9Z"/><circle cx="8" cy="10" r=".85" fill="currentColor" stroke="none"/><circle cx="7.5" cy="15" r=".85" fill="currentColor" stroke="none"/><circle cx="13" cy="16" r=".85" fill="currentColor" stroke="none"/><circle cx="13" cy="11.5" r=".85" fill="currentColor" stroke="none"/></svg>'
 
 
 def filename(policy, lang):
@@ -52,6 +53,14 @@ def render(policy, lang):
 
 contents = {lang: {policy: render(policy, lang) for policy in ('privacy', 'cookies')} for lang in LANGUAGES}
 index = (DIST / 'index.html').read_text()
+floating_control = f'''<!-- cookie-settings-fab -->
+  <button type="button" class="cookie-settings-fab" id="cookie-settings-fab" data-open-dialog="cookies-settings-dialog" data-consent-open aria-label="Setări cookie-uri" title="Setări cookie-uri" data-i18n-aria="cookieSettings" data-i18n-title="cookieSettings" aria-haspopup="dialog" aria-controls="cookies-settings-dialog">{COOKIE_ICON}</button>
+  <!-- /cookie-settings-fab -->'''
+if '<!-- cookie-settings-fab -->' in index:
+    index = re.sub(r'<!-- cookie-settings-fab -->.*?<!-- /cookie-settings-fab -->', lambda m: floating_control, index, flags=re.S)
+else:
+    index = index.replace('  <p id="consent-live-status"', '  ' + floating_control + '\n  <p id="consent-live-status"', 1)
+index = index.replace('#brief-form{display:none}', '#brief-form,#cookie-settings-fab{display:none}')
 for policy in ('privacy', 'cookies'):
     pattern = rf'(<div data-legal-policy="{policy}">).*?(</div><!-- legal:{policy} -->)'
     index, count = re.subn(pattern, lambda m: m[1] + contents['ro'][policy] + m[2], index, flags=re.S)
@@ -100,6 +109,7 @@ for lang in LANGUAGES:
     {settings}
   </main>
   <footer class="page-width legal-page-footer"><a href="{home}">{escape(t['back'])}</a> · <a href="mailto:hello@calmsilver.com">hello@calmsilver.com</a></footer>
+  <a class="cookie-settings-fab" href="{home}#cookie-settings" aria-label="{escape(t['settings'], quote=True)}" title="{escape(t['settings'], quote=True)}">{COOKIE_ICON}</a>
 </body>
 </html>
 '''
