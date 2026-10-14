@@ -6,7 +6,7 @@ Static landing page with Romanian, English and Hungarian copy, native dialogs, l
 
 ## Compliance review — 14 October 2026
 
-The compliance changes are prepared for owner review and **not deployed**. Read [COMPLIANCE-REVIEW.md](COMPLIANCE-REVIEW.md) and [VALIDATION.md](VALIDATION.md). Unconfirmed legal facts are explicitly marked; this is not a compliance certification.
+The owner approved publishing the reviewed compliance update on 14 October 2026, with the documented unconfirmed items still explicitly disclosed. Read [COMPLIANCE-REVIEW.md](COMPLIANCE-REVIEW.md) and [VALIDATION.md](VALIDATION.md). Unconfirmed legal facts are explicitly marked; this is not a compliance certification.
 
 - `legal/policies.json`: single authored source for both policies in all three languages.
 - `scripts/generate-legal.py`: generates six static policy pages, matching Romanian modal content and `dist/legal.js` for language changes. Edit the JSON, then regenerate.
@@ -44,4 +44,4 @@ Consent schema version 2 stores `version`, `preferences`, `updatedAt` and `expir
 
 The existing project ID is retained in `.openai/hosting.json`. GitHub and Sites are separate systems: a GitHub commit does not deploy the website.
 
-Resolve the review items and obtain owner approval of the concrete final content. Then push the approved exact source using the Sites source helper, save the matching archive, explicitly deploy that saved version to the existing project, preserve the public audience and verify the returned status. Synchronise GitHub main separately.
+The owner authorised deployment of this exact reviewed draft. Push its approved source using the Sites source helper, save the matching archive, explicitly deploy that saved version to the existing project, preserve the public audience and verify the returned status. Synchronise GitHub main separately. Future changes that resolve legal facts must update the shared policy source and must not retrospectively claim those facts were already confirmed.

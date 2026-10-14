@@ -1,6 +1,6 @@
 # CalmSilver — ellenőrzési jelentés, 2026. október 14.
 
-A műszaki módosítások elkészültek, **közzététel nélkül**. A szabályzatok jelölt tervezetek: nem állítanak teljes GDPR-megfelelést.
+A jelentés az előzetes ellenőrzés eredményeit rögzíti. A tulajdonos 2026. október 14-én jóváhagyta ennek a változatnak a publikálását, a jelzett hiányok megoldottnak nyilvánítása nélkül. A szabályzatok jelölt tervezetek: nem állítanak teljes GDPR-megfelelést.
 
 ## Elkészült
 
@@ -54,9 +54,7 @@ Részletes eredmények és kézi lépések: [VALIDATION.md](VALIDATION.md).
 
 ## Közzététel
 
-Sites save/deploy nem futott. A GitHub-review ág külön készül, a main ágat ez a lépés nem módosítja.
-
-A hiányzó tények és a jogi felülvizsgálat rendezése után a konkrét végleges szöveghez tulajdonosi jóváhagyás szükséges. Ezután az azonos, jóváhagyott forrást külön kell a meglévő Sites-projektbe menteni és telepíteni, majd a GitHub maint szinkronizálni. GitHub-commitból nincs automatikus Sites-frissítés.
+A tulajdonos a jelenlegi, változatlan jogi szöveget publikálásra jóváhagyta. A nyitott tények jelzései megmaradnak. A meglévő Sites-projektbe a jóváhagyott forrást külön kell menteni és telepíteni, a GitHub maint pedig külön szinkronizálni. GitHub-commitból nincs automatikus Sites-frissítés.
 
 ## Elsődleges források
 
