@@ -1,63 +1,42 @@
-# Validation — CalmSilver
+# Validation — compliance review, 14 October 2026
 
 ## Passed
 
-- JavaScript syntax check with Node.
-- Romanian/English/Hungarian translation keys: all three languages have identical key coverage. Every translatable text, accessible label, image description, hover title and placeholder used in the HTML resolves in all three languages.
-- HTML: single main heading, unique IDs, valid internal anchor destinations, present local assets and labelled form controls.
-- External links have `noopener noreferrer`.
-- Interaction checks using DOM test doubles: Romanian default; English switching; translated page metadata, ARIA labels and placeholders; mobile navigation; dialog handlers; email draft preparation and encoding; clipboard success and denied-access fallback.
-- Explicit `?lang=ro` / `?lang=en` / `?lang=hu` overrides a saved language. Blocked local storage does not stop the page from working.
-- The sculpture and its sharing artwork were removed in the approved 12 October revision.
-- Responsive CSS reviewed at 1600, 1150, 900, 700 and 390 pixel breakpoints, including a 320 pixel layout allowance.
-- Reduced-motion preferences supported. Essential content remains visible without animations or JavaScript. The email address remains visible without JavaScript.
-- CSS delimiters checked. Source has no external script or font dependencies.
+- JavaScript syntax checks for app.js, consent.js and generated legal.js.
+- Seven HTML pages: local resources, unique IDs, ARIA references, image alt attributes, protected external new-tab links and static language links.
+- Full RO/EN/HU key coverage, visible text, metadata, labels, placeholders, email accents, language round trips and query precedence.
+- Local draft creation, trimming, encoded mailto content, clipboard success, legacy copy and manual-selection fallbacks; no false sent status.
+- Default-off optional storage, accept/reject/custom settings, withdrawal and deletion of language storage; no stored form content.
+- Consent schema 2, version 1 renewal, 180-day duration, invalid/expired/future records and storage denial.
+- Active expiry within the JavaScript timeout limit; focus/visibility expiry checks and cross-tab withdrawal or storage clearing.
+- Existing dialog handlers, test-double focus restoration, policy-to-settings transition and settings return deep links.
+- Form becomes interactive only after submit prevention is installed. Without JavaScript it stays hidden and direct email remains available.
+- Legal HTML is generated from escaped repository content, never visitor input. Six static policy pages and modal copies share one source.
+- The header, entire main element, original style sheets, favicon and two SAL images are byte-identical to the baseline Sites source.
 
-## Verification limits
+## Live/source audit
 
-Rendered browser QA was not available because the supported browser-control skill was not exposed in this session. No preview server, browser installation or alternate browser-control route was used. The DOM checks validate application logic; they do not confirm rendered layout, native dialog focus behaviour or actual mobile browser rendering.
+GitHub main `81e534a6addd26abc291405fd5c679437b34bce7` and Sites source `c14016eb1b4a82e0ebee954509b2d9ab573a2748` have the same full Git tree: `697fbb2e57b30b0a8bb487de9bd28db43e055969`.
 
-The email draft is generated locally. Actual delivery and the mailbox's DNS configuration were not tested. The two application previews are explicitly conceptual and are not screenshots of live applications.
+Both public root HTML responses match the baseline. Successful curl reads of custom-domain styles.css, app.js and consent.js also match it. Sites reports the custom domain and certificate active.
 
-The Sites audience is public. The custom `calmsilver.com` domain is not connected.
+Those five responses set __cf_bm. Cookie values are excluded from [legal/live-audit.json](legal/live-audit.json); names, flags and expiry attributes remain. A separate Python HTTP batch received 403 responses and is recorded as failed, not passed. This audit is not a browser cookie jar or HAR capture.
 
-## Legal footer and consent update — 11 October 2026
+No application cookie writes, sessionStorage, IndexedDB, service worker, external scripts/fonts, analytics, marketing or form endpoint were found. Browser form restoration and a visitor's email application may independently retain data.
 
-- Node syntax checks for app.js and consent.js passed.
-- DOM interaction checks passed for no optional storage before permission; accept, reject and custom settings; preference deletion on withdrawal; consent expiry and invalid version; storage denial; persisted rejection; Romanian/English panel copy.
-- Permanent settings link, controller identity and ANPC/SAL link verified in markup. The supplied horizontal badge is displayed without distortion, with its blank margins clipped by CSS.
-- Hosting infrastructure cookies/analytics have not been inventoried. Application settings do not control platform mechanisms.
-- The supplied legal PDF templates remain unpublished, pending final policy content, hosting verification and a functioning contact address.
+## Not verified
 
-## Both SAL images — 11 October 2026
+- Rendered desktop/mobile layouts, actual dialog Tab trapping and Escape behaviour, screen-reader announcements, contrast and 200% zoom/reflow. The supported browser-control skill was unavailable.
+- Complete browser network/cookie inventory before consent, after accept/reject, reload and withdrawal. HttpOnly cookies are not visible through document.cookie.
+- Hosting internal logs, complete processor chain, physical processing locations, retention and contractual transfer safeguards.
+- Zoho account security, trash/backups and retention. Mailbox facts are owner-confirmed, not independently tested.
+- HSTS, CSP, anti-framing and nosniff HTTP-header support. None of those headers or a Referrer-Policy header appeared in the sampled responses. The new referrer-policy meta element does not create HTTP headers.
+- Legal bases and legitimate-interest assessment, controller contact particulars, cookie necessity, retention, cross-border transfers and ANPC/SAL applicability.
 
-- Both supplied images are present in the footer: the square image on the left and the horizontal image on the right. Both link to https://reclamatiisal.anpc.ro/.
-- Image proportions are preserved. Responsive sizing retains left/right placement on narrow screens; only blank margins of the horizontal original are clipped.
-- Both local assets and both links verified in HTML. Rendered browser QA remains unavailable.
+## Manual checks before deployment
 
-## Approved design revision — 12 October 2026
-
-- The published design revision matched the approved draft byte for byte.
-- Original palette, font families, logo, copy and section order preserved.
-- Hero picture and sharing artwork removed; larger centred title with a soft CSS shadow added.
-- Both SAL images remain on their original left/right sides with their links; sizes reduced by about 8–9%.
-- Visible email activation status removed from the contact section and form.
-- JavaScript, markup, links, translations and consent/contact interactions checked.
-- Browser rendering QA remains unavailable in this session. The user reviewed the standalone draft and approved publication.
-
-## Contact copy button — 12 October 2026
-
-- A separate keyboard-accessible icon button copies only `hello@calmsilver.com`; it does not launch a mail application.
-- Romanian and English labels, hover titles and live confirmations are translated. Successful copying briefly shows a check mark.
-- DOM checks cover clipboard success, denied/missing Clipboard API, selected-field fallback, manual selection, confirmation timeout and language-switch reset.
-- The address stays a normal email link and remains visible without JavaScript. The new row wraps on limited widths; its narrow-screen font allowance fits the original 320 pixel page width.
-- Node syntax, markup/assets and CSS delimiter checks passed. Rendered browser QA remains unavailable.
-
-## Hungarian language — 12 October 2026
-
-- RO / EN / HU language controls have native language labels and one active selection. Romanian remains the default.
-- All 158 application strings and 24 consent strings are present in each language. Hungarian copy covers headings, body text, menus, FAQs, forms, email drafts, clipboard feedback, legal information, cookie panels and metadata.
-- Translation wording was reviewed for natural Hungarian, consistent terminology and preservation of the original meaning. Official ANPC/SAL artwork remains intact; its alternative text is translated.
-- DOM interaction checks passed for full language round trips, active state, text/ARIA/alt/title/placeholder coverage, Hungarian title and locale, accented email subject/body, draft copying, direct `?lang=hu` links and preservation of other query parameters and anchors.
-- Hungarian preferences are remembered only after consent; withdrawal, expiry, explicit URL precedence and blocked storage were checked.
-- JavaScript syntax, markup, assets, anchors and CSS delimiters passed. Compact mobile header spacing was reviewed for the additional language choice. These checks do not replace rendered browser QA, which remains unavailable in this session.
+1. Inspect RO/EN/HU at 320, 375, 768 and 1440 pixels and at 200% zoom.
+2. Use Tab, Shift+Tab, Enter, Space and Escape through each dialog, including policies opened from the contact form; verify focus restoration.
+3. In a fresh browser profile, inspect Network and all cookie/storage panels. Confirm no optional language before permission; persistence after opt-in; deletion after rejection/withdrawal; no unexpected requests. Repeat on the other origin.
+4. Obtain missing provider and owner facts; check hosting security-cookie handling. The offline file cannot reproduce hosting cookies.
+5. Finalise the policy source, regenerate, rerun checks and approve the final content before a separate Sites deployment.

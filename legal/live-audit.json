@@ -1,0 +1,200 @@
+{
+  "checked_at": "2026-10-14T18:49:07.765757+00:00",
+  "baseline_site_commit": "c14016eb1b4a82e0ebee954509b2d9ab573a2748",
+  "github_commit": "81e534a6addd26abc291405fd5c679437b34bce7",
+  "requests": [
+    {
+      "origin": "https://calmsilver.com",
+      "path": "index.html",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "styles.css",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "refinement.css",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "app.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "consent.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "assets/favicon.svg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "assets/anpc-sal.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "assets/anpc-sal-square.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "index.html",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "styles.css",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "refinement.css",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "app.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "consent.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "assets/favicon.svg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "assets/anpc-sal.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "assets/anpc-sal-square.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "http_curl_checks": [
+    {
+      "origin": "https://calmsilver.com",
+      "path": "/",
+      "status": "HTTP/2 200 ",
+      "matches_baseline": true,
+      "sha256": "5db83f1c481db83ea72de1e1e319e10c95093699fa1567f328fe053b4e5be8c4",
+      "cookies": [
+        {
+          "name": "__cf_bm",
+          "attributes": [
+            "HttpOnly",
+            "SameSite=None",
+            "Secure",
+            "Path=/",
+            "Domain=calmsilver.com",
+            "Expires=Wed, 14 Oct 2026 19:20:38 GMT"
+          ]
+        }
+      ],
+      "security_headers_present": {},
+      "error": null
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "styles.css",
+      "status": "HTTP/2 200 ",
+      "matches_baseline": true,
+      "sha256": "f9fccbf4eb3a66f0698353fc79357f4fc53df28847888c71c5383adf415c0c7c",
+      "cookies": [
+        {
+          "name": "__cf_bm",
+          "attributes": [
+            "HttpOnly",
+            "SameSite=None",
+            "Secure",
+            "Path=/",
+            "Domain=calmsilver.com",
+            "Expires=Wed, 14 Oct 2026 19:20:43 GMT"
+          ]
+        }
+      ],
+      "security_headers_present": {},
+      "error": null
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "app.js",
+      "status": "HTTP/2 200 ",
+      "matches_baseline": true,
+      "sha256": "bf537ea720d0476b916e20dc7659649cb14316597b1317cc9f93b9647465cb7f",
+      "cookies": [
+        {
+          "name": "__cf_bm",
+          "attributes": [
+            "HttpOnly",
+            "SameSite=None",
+            "Secure",
+            "Path=/",
+            "Domain=calmsilver.com",
+            "Expires=Wed, 14 Oct 2026 19:20:50 GMT"
+          ]
+        }
+      ],
+      "security_headers_present": {},
+      "error": null
+    },
+    {
+      "origin": "https://calmsilver.com",
+      "path": "consent.js",
+      "status": "HTTP/2 200 ",
+      "matches_baseline": true,
+      "sha256": "0878aba335bfce2f8ef6953be45b539be12166bcbbf2173da9fd00b36164ecc6",
+      "cookies": [
+        {
+          "name": "__cf_bm",
+          "attributes": [
+            "HttpOnly",
+            "SameSite=None",
+            "Secure",
+            "Path=/",
+            "Domain=calmsilver.com",
+            "Expires=Wed, 14 Oct 2026 19:20:56 GMT"
+          ]
+        }
+      ],
+      "security_headers_present": {},
+      "error": null
+    },
+    {
+      "origin": "https://calmsilver.richardpeter-andre.chatgpt.site",
+      "path": "/",
+      "status": "HTTP/2 200 ",
+      "matches_baseline": true,
+      "sha256": "5db83f1c481db83ea72de1e1e319e10c95093699fa1567f328fe053b4e5be8c4",
+      "cookies": [
+        {
+          "name": "__cf_bm",
+          "attributes": [
+            "HttpOnly",
+            "SameSite=None",
+            "Secure",
+            "Path=/",
+            "Domain=chatgpt.site",
+            "Expires=Wed, 14 Oct 2026 19:21:03 GMT"
+          ]
+        }
+      ],
+      "security_headers_present": {},
+      "error": null
+    }
+  ],
+  "baseline_github_tree": "697fbb2e57b30b0a8bb487de9bd28db43e055969"
+}

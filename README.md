@@ -1,52 +1,47 @@
 # CalmSilver
 
-**Live website:** https://calmsilver.richardpeter-andre.chatgpt.site
+Live website: https://calmsilver.com
 
-**English:** https://calmsilver.richardpeter-andre.chatgpt.site/?lang=en
+Static landing page with Romanian, English and Hungarian copy, native dialogs, local email drafting and optional language storage. No runtime dependencies or build framework. Publish only `dist/` through the existing Sites project.
 
-**Hungarian:** https://calmsilver.richardpeter-andre.chatgpt.site/?lang=hu
+## Compliance review — 14 October 2026
 
-A buildless, trilingual company landing page. Romanian is the default language; English and Hungarian are selected with the RO / EN / HU language switcher or `?lang=en` / `?lang=hu`. An explicit supported language query takes priority over the browser-local preference. Preferences are stored only with consent.
+The compliance changes are prepared for owner review and **not deployed**. Read [COMPLIANCE-REVIEW.md](COMPLIANCE-REVIEW.md) and [VALIDATION.md](VALIDATION.md). Unconfirmed legal facts are explicitly marked; this is not a compliance certification.
 
-## Contents
+- `legal/policies.json`: single authored source for both policies in all three languages.
+- `scripts/generate-legal.py`: generates six static policy pages, matching Romanian modal content and `dist/legal.js` for language changes. Edit the JSON, then regenerate.
+- Policy anchors retain the existing dialogs and work as real page links without JavaScript. Static policy pages have ordinary language links.
+- `dist/consent.js`: controls the consent record and optional language preference. Hosting security cookies are disclosed separately and have no misleading optional switch.
+- `review/CalmSilver-GDPR-review.html`: offline review copy, outside the deployed directory. Browser storage in this file is separate from production.
 
-- `dist/index.html`: semantic landing page, project previews, FAQs and accessible native dialogs.
-- `dist/styles.css`: responsive editorial design with reduced-motion support.
-- `dist/app.js`: Romanian/English/Hungarian copy, navigation, email draft and clipboard fallback.
-- `dist/refinement.css`: approved spacing refinements, centred headline and soft tonal shadow.
-- `dist/assets/favicon.svg`: original vector brand mark.
-- `dist/consent.js`: application consent and language preference controls.
-- `dist/assets/anpc-sal.jpg` and `dist/assets/anpc-sal-square.jpg`: supplied ANPC/SAL footer images.
+The approved header, main content, original style sheets, logo and two ANPC/SAL images are preserved. New CSS is scoped to legal content and dialog controls.
 
-No package installation or build step is needed. Deploy `dist` as static files.
+## Checks
 
-## Contact flow
+```bash
+python3 scripts/generate-legal.py
+python3 scripts/check-site.py
+node --check dist/app.js
+node --check dist/consent.js
+node --check dist/legal.js
+node tests/regression.cjs
+python3 scripts/create-review.py
+```
 
-The contact address has a subtle clipboard icon. It copies only `hello@calmsilver.com`, with a brief confirmation in the selected language. If clipboard access is unavailable, it attempts a selected-field copy, then offers manual copying. The original email link remains available.
+Tests use DOM test doubles and source inspection. They do not verify rendered layout, real native-dialog focus trapping or a browser cookie jar. The supported browser-control skill was unavailable; no replacement browser or preview server was installed.
 
-The contact dialog composes an email to `hello@calmsilver.com`. The visitor reviews and sends it using their own mail client. The form also displays a copyable draft when no mail client is configured. It makes no API submission, saves no form data and does not report a message as sent. Receiving emails depends on the actual mailbox configuration, which is outside this website.
+## Contact and storage
 
-BuildFlow and MarginPilot are identified as the founder's own projects. MarginPilot is marked in development. Interface previews are labelled conceptual. There are no invented customers, testimonials, prices or performance guarantees.
+The form prepares an email locally and makes no API submission. Form content is not stored in cookies, localStorage or a database. The form remains inert until its submit-prevention handler is installed. Visitors review and send the message in their own mail application. Clipboard controls retain manual-copy fallbacks.
 
-## Design
+The owner confirmed a working hello@calmsilver.com mailbox, Zoho EU, sole access and no automatic forwarding. No test email was sent. PFA registration is not confirmed; no registration number or address has been invented.
 
-The approved 12 October 2026 revision preserves the original colour palette, font families, logo, copy and section order. The generated sculpture and its sharing image have been removed. The opening is text-led, with a larger centred headline and a soft tonal shadow. Decorative details are reduced; the supplied SAL images are about 8–9% smaller. The standalone draft was reviewed before publication.
+Consent schema version 2 stores `version`, `preferences`, `updatedAt` and `expiresAt` in `calmsilver.consent` for 180 days. `calmsilver.language` is stored only after permission. Withdrawal, expiry and cross-tab rejection remove it. Version 1 choices are renewed after deployment. The record has no random user ID and is not transmitted to a consent server.
 
-The Hungarian language addition covers all application and consent copy, metadata, accessibility labels, the contact draft and clipboard feedback. ANPC/SAL images retain their official Romanian artwork and have translated alternative text. The mobile language buttons have a small spacing allowance for the third choice.
+`__cf_bm` was observed in public HTTP responses on both origins. It is an HttpOnly, Secure hosting cookie documented by Cloudflare as bot protection with 30 minutes of inactivity. The application panel does not control it. No other provider cookie is asserted without evidence.
 
-## Publication
+## Publication after approval
 
-The Sites project identity is stored in `.openai/hosting.json`. Source and deployments use the Sites workflow. The website is publicly accessible without ChatGPT sign-in. The `calmsilver.com` custom domain is not connected yet. GitHub stores the source; the current live website is hosted with Sites.
+The existing project ID is retained in `.openai/hosting.json`. GitHub and Sites are separate systems: a GitHub commit does not deploy the website.
 
-## Validation
-
-See `VALIDATION.md` for verification results and limits.
-
-## Legal and consent status (11 October 2026)
-
-CalmSilver is an unregistered brand project operated by Andre Richard-Peter. The website uses hello@calmsilver.com. Mail delivery depends on the external mailbox setup; the visible activation notice was removed in the approved design revision. The footer provides both supplied ANPC/SAL images, aligned left and right and linked to the SAL information page and permanent cookie settings in Romanian, English and Hungarian.
-
-The site code uses calmsilver.consent (180-day local consent record) and calmsilver.language (optional language preference). Language storage is disabled before permission and deleted on withdrawal or expiry. No site analytics or advertising integration is installed. The panel controls only CalmSilver application storage; hosting mechanisms require separate verification.
-
-The supplied GDPR/cookie PDFs are unfilled templates and have not been published. Detailed policies and downloadable PDFs remain pending verified infrastructure information and an operational contact address. This release is not a claim of complete legal compliance.
-
+Resolve the review items and obtain owner approval of the concrete final content. Then push the approved exact source using the Sites source helper, save the matching archive, explicitly deploy that saved version to the existing project, preserve the public audience and verify the returned status. Synchronise GitHub main separately.

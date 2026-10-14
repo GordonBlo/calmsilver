@@ -53,11 +53,7 @@ const translations = {
     formNote: 'Butonul pregătește un mesaj în aplicația ta de e-mail. Îl poți verifica și trimite de acolo. Acest formular nu trimite și nu salvează datele pe server.',
     formSubmit: 'Pregătește e-mailul', draftReady: 'Mesajul este pregătit. Dacă aplicația de e-mail nu s-a deschis, copiază textul de mai jos și trimite-l la hello@calmsilver.com.', draftLabel: 'Mesaj pregătit', copyDraft: 'Copiază mesajul', copied: 'Mesaj copiat.', copyFallback: 'Selectează textul de mai sus și copiază-l manual.',
     emailSubject: 'CalmSilver — Discuție despre proiect', emailGreeting: 'Bună, CalmSilver!', emailName: 'Nume', emailBusiness: 'Afacere', emailService: 'Proiect', emailMessage: 'Despre proiect',
-    privacyTitle: 'Despre datele tale.',
-    privacyText1: 'Formularul de proiect pregătește un mesaj local, în browser, și deschide aplicația ta de e-mail. Datele introduse nu sunt trimise către CalmSilver până când nu trimiți tu e-mailul. Nu le salvăm într-o bază de date prin acest formular.',
-    privacyText2: 'Dacă ne contactezi prin e-mail, folosim informațiile primite pentru a răspunde și pentru a discuta proiectul. Pentru întrebări legate de aceste informații, ne poți scrie la hello@calmsilver.com.',
-    privacyText3: 'Selectorul de limbă păstrează preferința în browserul tău, folosind stocarea locală. Furnizorul de găzduire poate prelucra date tehnice de acces și statistici de trafic conform propriilor politici.',
-    hostingPrivacy: 'Politica de confidențialitate a furnizorului de găzduire'
+    privacyTitle: 'Politica de confidențialitate',
   },
   en: {
     pageTitle: 'CalmSilver — Thoughtful websites & digital products.',
@@ -111,22 +107,14 @@ const translations = {
     formNote: 'The button prepares a message in your email application. You can review and send it there. This form does not send or store your information on a server.',
     formSubmit: 'Prepare the email', draftReady: 'Your message is ready. If your email application did not open, copy the text below and send it to hello@calmsilver.com.', draftLabel: 'Prepared message', copyDraft: 'Copy the message', copied: 'Message copied.', copyFallback: 'Select the text above and copy it manually.',
     emailSubject: 'CalmSilver — Let’s discuss a project', emailGreeting: 'Hello, CalmSilver!', emailName: 'Name', emailBusiness: 'Business', emailService: 'Project', emailMessage: 'About the project',
-    privacyTitle: 'About your information.',
-    privacyText1: 'The project form prepares a message locally in your browser and opens your email application. The information you enter is not sent to CalmSilver until you send the email yourself. This form does not save it to a database.',
-    privacyText2: 'If you contact us by email, we use the information you share to reply and discuss your project. For questions about that information, you can write to hello@calmsilver.com.',
-    privacyText3: 'The language switcher remembers your preference in your browser using local storage. The hosting provider may process technical access data and traffic statistics under its own policies.',
-    hostingPrivacy: 'Hosting provider’s privacy policy'
+    privacyTitle: 'Privacy Policy',
   }
 };
 
 
 Object.assign(translations.ro, {
   privacyLink: 'Politica de confidențialitate', cookiesLink: 'Politica de cookies', cookieSettings: 'Setări cookie-uri',
-  operatorLabel: 'CalmSilver este un proiect de brand al lui Andre Richard-Peter.', registrationPending: 'Forma juridică este în curs de pregătire.',
-  emailPending: 'Adresa de e-mail este în curs de activare.',
-  privacyIdentity: 'Operator: Andre Richard-Peter. CalmSilver este un brand în pregătire, fără o entitate SRL/PFA înregistrată în prezent.',
-  privacyText2: 'Informațiile primite prin e-mail sunt folosite pentru a răspunde și a discuta proiectul. Adresa planificată pentru contact și întrebări despre date este hello@calmsilver.com; aceasta este în curs de activare.',
-  privacyText3: 'Limba paginii este memorată în browser numai dacă activezi preferințele în Setări cookie-uri. Platforma de găzduire poate prelucra date tehnice și statistici conform propriilor politici. Informarea de aici este preliminară; documentele detaliate vor fi completate după verificarea infrastructurii și activarea contactului.'
+  operatorLabel: 'CalmSilver este un proiect de brand al lui Andre Richard-Peter.', registrationPending: 'Înregistrarea PFA este în curs; nu este încă confirmată.',
 });
 Object.assign(translations.ro, {
   salSquareAlt: 'ANPC — Protecția Consumatorilor și Soluționarea Alternativă a Litigiilor',
@@ -134,11 +122,7 @@ Object.assign(translations.ro, {
 });
 Object.assign(translations.en, {
   privacyLink: 'Privacy information', cookiesLink: 'Cookie information', cookieSettings: 'Cookie settings',
-  operatorLabel: 'CalmSilver is a brand project by Andre Richard-Peter.', registrationPending: 'Business registration is being prepared.',
-  emailPending: 'This email address is being activated.',
-  privacyIdentity: 'Operator: Andre Richard-Peter. CalmSilver is a brand in preparation, currently without a registered SRL/PFA entity.',
-  privacyText2: 'Information received by email is used to reply and discuss your project. The planned contact address for enquiries and data questions is hello@calmsilver.com; it is being activated.',
-  privacyText3: 'Your page language is remembered in this browser only if you enable preferences in Cookie settings. The hosting platform may process technical data and statistics under its own policies. This information is preliminary; detailed documents will be completed after infrastructure checks and contact activation.'
+  operatorLabel: 'CalmSilver is a brand project by Andre Richard-Peter.', registrationPending: 'PFA registration is in progress and has not yet been confirmed.',
 });
 Object.assign(translations.en, {
   salSquareAlt: 'ANPC — Consumer protection and alternative dispute resolution',
@@ -198,15 +182,9 @@ translations.hu = {
   formNote: 'A gomb előkészít egy üzenetet az e-mail-alkalmazásodban. Ott átnézheted és elküldheted. Ez az űrlap nem küldi el és nem menti a szerverre az adataidat.',
   formSubmit: 'E-mail előkészítése', draftReady: 'Az üzenet elkészült. Ha az e-mail-alkalmazás nem nyílt meg, másold ki az alábbi szöveget, és küldd el a hello@calmsilver.com címre.', draftLabel: 'Előkészített üzenet', copyDraft: 'Üzenet másolása', copied: 'Üzenet kimásolva.', copyFallback: 'Jelöld ki a fenti szöveget, és másold ki kézzel.',
   emailSubject: 'CalmSilver — Egyeztetés egy projektről', emailGreeting: 'Szia, CalmSilver!', emailName: 'Név', emailBusiness: 'Vállalkozás', emailService: 'Projekt', emailMessage: 'A projektről',
-  privacyTitle: 'A személyes adataidról.',
-  privacyText1: 'A projektűrlap helyben, a böngészőben készít elő egy üzenetet, majd megnyitja az e-mail-alkalmazásodat. A megadott adatok csak akkor jutnak el a CalmSilverhez, amikor te elküldöd az e-mailt. Az űrlap nem menti őket adatbázisba.',
-  privacyText2: 'Az e-mailben kapott információkat a válaszadáshoz és a projekt megbeszéléséhez használjuk. A tervezett kapcsolattartási cím, amelyen az adataiddal kapcsolatos kérdéseket is fogadjuk, a hello@calmsilver.com; aktiválása folyamatban van.',
-  privacyText3: 'Az oldal nyelvét csak akkor jegyzi meg a böngésző, ha ezt engedélyezed a Sütibeállításokban. A tárhelyszolgáltató a saját szabályzata szerint kezelhet technikai adatokat és statisztikákat. Ez előzetes tájékoztató; a részletes dokumentumokat az infrastruktúra ellenőrzése és a kapcsolattartási cím aktiválása után egészítjük ki.',
-  hostingPrivacy: 'A tárhelyszolgáltató adatvédelmi tájékoztatója',
+  privacyTitle: 'Adatkezelési tájékoztató',
   cookiesLink: 'Sütikezelési tájékoztató', cookieSettings: 'Sütibeállítások',
-  operatorLabel: 'A CalmSilver márkát Andre Richard-Peter építi.', registrationPending: 'A vállalkozás bejegyzése előkészítés alatt áll.',
-  emailPending: 'Az e-mail-cím aktiválása folyamatban van.',
-  privacyIdentity: 'Adatkezelő: Andre Richard-Peter. A CalmSilver kialakítás alatt álló márka; jelenleg nincs mögötte bejegyzett SRL/PFA vállalkozás.',
+  operatorLabel: 'A CalmSilver márkát Andre Richard-Peter építi.', registrationPending: 'A PFA bejegyzése folyamatban van; még nincs megerősítve.',
   salSquareAlt: 'ANPC — Fogyasztóvédelem és alternatív vitarendezés', salHorizontalAlt: 'ANPC — Alternatív vitarendezés'
 };
 
@@ -288,14 +266,22 @@ document.addEventListener('keydown', event => { if (event.key === 'Escape') setM
 const desktopQuery = window.matchMedia('(min-width: 701px)');
 desktopQuery.addEventListener('change', event => { if (event.matches) setMenuOpen(false); });
 
+function openDialog(id, trigger = null) {
+  setMenuOpen(false);
+  const dialog = document.getElementById(id);
+  if (!dialog || dialog.open) return;
+  // Keep the original page trigger when opening a policy from another dialog.
+  if (trigger && !trigger.closest('dialog')) lastDialogTrigger = trigger;
+  dialog.showModal();
+  document.body.classList.add('modal-open');
+}
+window.CalmSilverDialogs = Object.freeze({ open: openDialog });
 for (const trigger of document.querySelectorAll('[data-open-dialog]')) {
-  trigger.addEventListener('click', () => {
-    setMenuOpen(false);
-    const dialog = document.getElementById(trigger.dataset.openDialog);
-    if (dialog.open) return;
-    lastDialogTrigger = trigger;
-    dialog.showModal();
-    document.body.classList.add('modal-open');
+  trigger.addEventListener('click', event => {
+    // Policy anchors remain real links, including open-in-new-tab and no-JS use.
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || (event.button && event.button !== 0)) return;
+    event.preventDefault();
+    openDialog(trigger.dataset.openDialog, trigger);
   });
 }
 for (const dialog of document.querySelectorAll('dialog')) {
@@ -376,3 +362,7 @@ const queryLanguage = new URL(window.location.href).searchParams.get('lang');
 if (Object.hasOwn(translations, queryLanguage)) initialLanguage = queryLanguage;
 else { try { const saved = window.CalmSilverConsent.allowsPreferences() ? localStorage.getItem('calmsilver.language') : null; if (Object.hasOwn(translations, saved)) initialLanguage = saved; } catch { /* Romanian remains the default. */ } }
 setLanguage(initialLanguage, false);
+briefForm.removeAttribute('inert');
+if (window.location.hash === '#cookie-settings') {
+  openDialog('cookies-settings-dialog', document.querySelector('[data-consent-open]'));
+}

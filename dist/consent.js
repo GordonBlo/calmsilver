@@ -1,70 +1,94 @@
 'use strict';
 (() => {
   const KEY = 'calmsilver.consent';
-  const VERSION = 1;
+  const VERSION = 2;
   const DURATION = 180 * 24 * 60 * 60 * 1000;
   const strings = {
-    ro: {
-      bannerTitle: 'Preferințele tale.', bannerText: 'Poți alege dacă păstrăm limba paginii în acest browser. Pagina funcționează și fără această opțiune.',
-      accept: 'Acceptă toate', reject: 'Respinge opționalele', customize: 'Personalizează', close: 'Închide', settingsTitle: 'Setări cookie-uri',
-      settingsIntro: 'Aceste setări controlează stocarea folosită de codul CalmSilver. Le poți modifica oricând din subsolul paginii.',
-      necessaryTitle: 'Necesare', necessaryText: 'Păstrăm alegerea ta pentru a nu afișa din nou panoul la fiecare vizită. Nu o folosim pentru publicitate.', alwaysActive: 'Mereu active',
-      preferencesTitle: 'Preferințe', preferencesText: 'Memorează limba aleasă în acest browser. Dacă refuzi, selectorul de limbă continuă să funcționeze.',
-      trackingText: 'Codul CalmSilver nu include Google Analytics, pixeli de publicitate sau alte integrări de marketing. Setările de aici nu controlează eventuale mecanisme proprii ale platformei de găzduire.',
-      save: 'Salvează alegerea', storageUnavailable: 'Alegerea este aplicată pentru această vizită. Browserul nu permite memorarea ei.',
-      policyTitle: 'Politica de cookies', policyIntro: 'Operatorul proiectului CalmSilver este Andre Richard-Peter. Această informare descrie stocarea locală utilizată de codul acestei pagini.',
-      inventoryTitle: 'Ce păstrăm în browser', consentInventory: 'Stocare locală proprie: alegerea ta, versiunea setărilor și data expirării. Se păstrează maximum 180 de zile, apoi îți cerem din nou alegerea. Este necesară pentru memorarea setărilor.',
-      languageInventory: 'Stocare locală proprie: limba RO, EN sau HU, numai cu acordul pentru preferințe. Este eliminată când retragi acordul sau când acesta expiră, cel târziu la următoarea vizită.',
-      noTracking: 'Nu adăugăm în codul CalmSilver cookie-uri de analiză sau publicitate. Formularul pregătește un mesaj local; nu păstrează datele introduse în localStorage.',
-      platformNotice: 'Platforma de găzduire poate prelucra date tehnice și statistici conform propriilor politici. Panoul CalmSilver nu modifică setările platformei. Inventarul complet al infrastructurii trebuie verificat separat înainte de finalizarea documentelor PDF.',
-      withdrawal: 'Poți retrage acordul din Setări cookie-uri în subsolul paginii sau poți șterge stocarea site-ului din browser. Dacă browserul blochează stocarea, alegerile funcționează doar pentru vizita curentă.'
-    },
-    en: {
-      bannerTitle: 'Your preferences.', bannerText: 'Choose whether we remember the page language in this browser. The page works without this option too.',
-      accept: 'Accept all', reject: 'Reject optional', customize: 'Customise', close: 'Close', settingsTitle: 'Cookie settings',
-      settingsIntro: 'These settings control storage used by the CalmSilver code. You can change them at any time in the footer.',
-      necessaryTitle: 'Necessary', necessaryText: 'We remember your choice so the panel does not appear on every visit. We do not use it for advertising.', alwaysActive: 'Always active',
-      preferencesTitle: 'Preferences', preferencesText: 'Remember your chosen language in this browser. If you decline, the language switcher still works.',
-      trackingText: 'The CalmSilver code contains no Google Analytics, advertising pixels or other marketing integrations. These settings do not control any mechanisms operated by the hosting platform itself.',
-      save: 'Save choice', storageUnavailable: 'Your choice applies for this visit. Your browser does not allow it to be saved.',
-      policyTitle: 'Cookie information', policyIntro: 'The operator of the CalmSilver project is Andre Richard-Peter. This notice describes local storage used by this page’s code.',
-      inventoryTitle: 'What we store in your browser', consentInventory: 'First-party local storage: your choice, settings version and expiry date. Kept for up to 180 days, after which we ask again. Necessary to remember your settings.',
-      languageInventory: 'First-party local storage: RO, EN or HU, only with permission for preferences. Removed when permission is withdrawn or expires, no later than your next visit.',
-      noTracking: 'We do not add analytics or advertising cookies to the CalmSilver code. The form prepares a message locally; it does not save your input in localStorage.',
-      platformNotice: 'The hosting platform may process technical data and statistics under its own policies. The CalmSilver panel does not change platform settings. The full infrastructure inventory needs separate verification before the PDF documents are finalised.',
-      withdrawal: 'Withdraw permission using Cookie settings in the footer, or clear site storage in your browser. If browser storage is blocked, your choices apply for the current visit only.'
-    },
-    hu: {
-      bannerTitle: 'A te beállításaid.', bannerText: 'Eldöntheted, hogy megjegyezzük-e az oldal nyelvét ebben a böngészőben. Az oldal enélkül is működik.',
-      accept: 'Összes elfogadása', reject: 'Opcionálisak elutasítása', customize: 'Testreszabás', close: 'Bezárás', settingsTitle: 'Sütibeállítások',
-      settingsIntro: 'Ezek a beállítások a CalmSilver kódja által használt böngészőbeli tárolást szabályozzák. Az oldal alján bármikor módosíthatod őket.',
-      necessaryTitle: 'Elengedhetetlen', necessaryText: 'Megjegyezzük a döntésedet, hogy ne kelljen minden látogatáskor újra választanod. Ezt nem használjuk hirdetésekhez.', alwaysActive: 'Mindig aktív',
-      preferencesTitle: 'Beállítások megjegyzése', preferencesText: 'Megjegyzi a választott nyelvet ebben a böngészőben. Ha elutasítod, a nyelvválasztó továbbra is működik.',
-      trackingText: 'A CalmSilver kódja nem tartalmaz Google Analytics-integrációt, hirdetési pixeleket vagy más marketingintegrációt. Ezek a beállítások nem szabályozzák a tárhelyszolgáltató saját megoldásait.',
-      save: 'Választás mentése', storageUnavailable: 'A választásod erre a látogatásra érvényes. A böngésződ nem engedi a mentését.',
-      policyTitle: 'Sütikezelési tájékoztató', policyIntro: 'A CalmSilver projekt üzemeltetője Andre Richard-Peter. Ez a tájékoztató azt ismerteti, milyen adatokat tárol az oldal kódja a böngészőben.',
-      inventoryTitle: 'Mit tárolunk a böngésződben?', consentInventory: 'Saját helyi tárolás: a választásod, a beállítások verziója és a lejárat időpontja. Legfeljebb 180 napig őrizzük meg, ezután ismét választást kérünk. A beállításaid megjegyzéséhez szükséges.',
-      languageInventory: 'Saját helyi tárolás: a választott nyelv (RO, EN vagy HU), kizárólag a beállítások megjegyzéséhez adott hozzájárulással. A hozzájárulás visszavonásakor vagy lejáratakor, legkésőbb a következő látogatáskor töröljük.',
-      noTracking: 'A CalmSilver kódjához nem adunk analitikai vagy hirdetési sütiket. Az űrlap helyben készít elő egy üzenetet; a megadott adatokat nem menti a localStorage-ba.',
-      platformNotice: 'A tárhelyszolgáltató a saját szabályzata szerint kezelhet technikai adatokat és statisztikákat. A CalmSilver beállítási felülete nem módosítja a szolgáltató beállításait. A PDF-dokumentumok véglegesítése előtt külön fel kell mérni a teljes infrastruktúrát.',
-      withdrawal: 'A hozzájárulásodat az oldal alján található Sütibeállításokban vonhatod vissza, vagy törölheted az oldal böngészőben tárolt adatait. Ha a böngésző letiltja a tárolást, a választásaid csak az aktuális látogatásra érvényesek.'
-    }
-  };
+  "ro": {
+    "bannerTitle": "Preferințele tale.",
+    "bannerText": "Poți alege dacă memorăm limba în acest browser. Refuzul nu limitează pagina. Protecția tehnică a găzduirii rămâne activă.",
+    "accept": "Acceptă toate",
+    "reject": "Respinge opționalele",
+    "customize": "Personalizează",
+    "close": "Închide",
+    "settingsTitle": "Setări cookie-uri",
+    "settingsIntro": "Aceste setări controlează stocarea folosită de codul CalmSilver. Le poți modifica oricând din subsolul paginii.",
+    "necessaryTitle": "Necesare",
+    "necessaryText": "Memorăm decizia ta timp de 180 de zile. Găzduirea folosește separat cookie-ul de securitate Cloudflare __cf_bm; nu îl controlează panoul.",
+    "alwaysActive": "Mereu active",
+    "preferencesTitle": "Preferințe",
+    "preferencesText": "Memorează limba aleasă în acest browser. Dacă refuzi, selectorul de limbă continuă să funcționeze.",
+    "trackingText": "Singura opțiune este memorarea limbii. Codul paginii nu include analiză sau publicitate. Cookie-ul de securitate __cf_bm și jurnalele infrastructurii nu sunt dezactivate prin acest panou.",
+    "save": "Salvează alegerea",
+    "storageUnavailable": "Alegerea este aplicată pentru această vizită. Browserul nu permite memorarea ei.",
+    "policyTitle": "Politica de cookies",
+    "saved": "Alegerea a fost aplicată.",
+    "withdrawn": "Memorarea limbii este dezactivată; preferința salvată a fost eliminată."
+  },
+  "en": {
+    "bannerTitle": "Your preferences.",
+    "bannerText": "Choose whether we remember the language in this browser. Declining does not limit the page. Hosting security protection remains active.",
+    "accept": "Accept all",
+    "reject": "Reject optional",
+    "customize": "Customise",
+    "close": "Close",
+    "settingsTitle": "Cookie settings",
+    "settingsIntro": "These settings control storage used by the CalmSilver code. You can change them at any time in the footer.",
+    "necessaryTitle": "Necessary",
+    "necessaryText": "We remember your choice for 180 days. Hosting separately uses the Cloudflare security cookie __cf_bm; the panel does not control it.",
+    "alwaysActive": "Always active",
+    "preferencesTitle": "Preferences",
+    "preferencesText": "Remember your chosen language in this browser. If you decline, the language switcher still works.",
+    "trackingText": "Remembering the language is the only optional feature. The page code contains no analytics or advertising. This panel does not disable the __cf_bm security cookie or infrastructure logs.",
+    "save": "Save choice",
+    "storageUnavailable": "Your choice applies for this visit. Your browser does not allow it to be saved.",
+    "policyTitle": "Cookie Policy",
+    "saved": "Your choice has been applied.",
+    "withdrawn": "Language storage is off; the saved preference has been removed."
+  },
+  "hu": {
+    "bannerTitle": "A te beállításaid.",
+    "bannerText": "Eldöntheted, hogy megjegyezzük-e a nyelvet ebben a böngészőben. Az elutasítás nem korlátozza az oldalt. A tárhely technikai védelme aktív marad.",
+    "accept": "Összes elfogadása",
+    "reject": "Opcionálisak elutasítása",
+    "customize": "Testreszabás",
+    "close": "Bezárás",
+    "settingsTitle": "Sütibeállítások",
+    "settingsIntro": "Ezek a beállítások a CalmSilver kódja által használt böngészőbeli tárolást szabályozzák. Az oldal alján bármikor módosíthatod őket.",
+    "necessaryTitle": "Elengedhetetlen",
+    "necessaryText": "A döntésedet 180 napig jegyezzük meg. A tárhely külön használja a Cloudflare __cf_bm biztonsági sütijét; ezt a panel nem szabályozza.",
+    "alwaysActive": "Mindig aktív",
+    "preferencesTitle": "Beállítások megjegyzése",
+    "preferencesText": "Megjegyzi a választott nyelvet ebben a böngészőben. Ha elutasítod, a nyelvválasztó továbbra is működik.",
+    "trackingText": "Az egyetlen opcionális funkció a nyelv megjegyzése. Az oldal kódjában nincs analitika vagy hirdetés. Ez a panel nem kapcsolja ki a __cf_bm biztonsági sütit vagy az infrastruktúra naplóit.",
+    "save": "Választás mentése",
+    "storageUnavailable": "A választásod erre a látogatásra érvényes. A böngésződ nem engedi a mentését.",
+    "policyTitle": "Sütikezelési tájékoztató",
+    "saved": "A választásod érvénybe lépett.",
+    "withdrawn": "A nyelv megjegyzése kikapcsolva; a mentett nyelvbeállítást töröltük."
+  }
+};
   let choice = null;
+  let expiryTimer;
   const banner = document.getElementById('cookie-banner');
   const settings = document.getElementById('cookies-settings-dialog');
   const preference = document.getElementById('cookie-preferences');
   const status = document.getElementById('cookie-save-status');
+  const liveStatus = document.getElementById('consent-live-status');
   function language() { const lang = document.documentElement.lang; return Object.hasOwn(strings, lang) ? lang : 'ro'; }
   function removeLanguage() { try { localStorage.removeItem('calmsilver.language'); } catch { /* In-memory settings still work. */ } }
   function valid(value) {
-    return value && value.version === VERSION && typeof value.preferences === 'boolean' && Number.isFinite(value.updatedAt) && Number.isFinite(value.expiresAt) && value.updatedAt <= Date.now() && value.expiresAt > Date.now() && value.expiresAt - value.updatedAt <= DURATION;
+    return value && value.version === VERSION && typeof value.preferences === 'boolean' && Number.isFinite(value.updatedAt) && Number.isFinite(value.expiresAt) && value.updatedAt > 0 && value.updatedAt <= Date.now() && value.expiresAt > value.updatedAt && value.expiresAt > Date.now() && value.expiresAt - value.updatedAt <= DURATION;
   }
-  try {
-    const stored = JSON.parse(localStorage.getItem(KEY));
-    if (valid(stored)) choice = stored;
-    else localStorage.removeItem(KEY);
-  } catch { /* Missing, invalid or blocked storage means no optional permission. */ }
+  function readChoice() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(KEY));
+      if (valid(stored)) return stored;
+    } catch { /* Missing, invalid or blocked storage means no optional permission. */ }
+    try { localStorage.removeItem(KEY); } catch { /* Browser storage may be disabled. */ }
+    return null;
+  }
+  choice = readChoice();
   if (!choice || !choice.preferences) removeLanguage();
   function allowsPreferences() {
     if (choice && !valid(choice)) {
@@ -72,8 +96,18 @@
       removeLanguage();
       try { localStorage.removeItem(KEY); } catch { /* No storage available. */ }
       banner.hidden = false;
+      preference.checked = false;
     }
     return Boolean(choice && choice.preferences);
+  }
+  function scheduleExpiry() {
+    window.clearTimeout(expiryTimer);
+    if (!choice) return;
+    // setTimeout cannot represent the full 180-day interval in one call.
+    expiryTimer = window.setTimeout(() => {
+      allowsPreferences();
+      scheduleExpiry();
+    }, Math.min(Math.max(choice.expiresAt - Date.now() + 1, 1), 2147483647));
   }
   function render() {
     const t = strings[language()];
@@ -89,7 +123,10 @@
     else { try { localStorage.setItem('calmsilver.language', language()); } catch { persisted = false; } }
     preference.checked = preferences;
     banner.hidden = true;
-    status.textContent = persisted ? '' : strings[language()].storageUnavailable;
+    const message = persisted ? strings[language()][preferences ? 'saved' : 'withdrawn'] : strings[language()].storageUnavailable;
+    status.textContent = message;
+    liveStatus.textContent = message;
+    scheduleExpiry();
     if (persisted && settings.open) settings.close();
     // No analytics or marketing integration is enabled by this module.
   }
@@ -102,21 +139,24 @@
     status.textContent = '';
   });
   document.getElementById('policy-open-settings').addEventListener('click', () => {
-    document.getElementById('cookies-policy-dialog').close();
     preference.checked = allowsPreferences();
     status.textContent = '';
-    settings.showModal();
-    document.body.classList.add('modal-open');
+    window.CalmSilverDialogs.open('cookies-settings-dialog');
+    document.getElementById('cookies-policy-dialog').close();
   });
   window.addEventListener('calmsilver:language', render);
   window.addEventListener('storage', event => {
     if (event.key !== KEY && event.key !== null) return;
-    try { const value = JSON.parse(localStorage.getItem(KEY)); choice = valid(value) ? value : null; } catch { choice = null; }
+    choice = readChoice();
     if (!allowsPreferences()) removeLanguage();
     preference.checked = allowsPreferences();
     banner.hidden = Boolean(choice);
+    scheduleExpiry();
   });
+  window.addEventListener('focus', allowsPreferences);
+  document.addEventListener('visibilitychange', allowsPreferences);
   banner.hidden = Boolean(choice);
   preference.checked = allowsPreferences();
   render();
+  scheduleExpiry();
 })();
