@@ -14,7 +14,7 @@ The owner approved publishing the reviewed compliance update on 14 October 2026,
 - `dist/consent.js`: controls the consent record and optional language preference. Hosting security cookies are disclosed separately and have no misleading optional switch.
 - `review/CalmSilver-GDPR-review.html`: offline review copy, outside the deployed directory. Browser storage in this file is separate from production.
 
-The approved header, main content, original style sheets, logo and two ANPC/SAL images are preserved. New CSS is scoped to legal content and dialog controls.
+The approved header, main content, original style sheets, logo and two ANPC/SAL images are preserved. New CSS is scoped to legal content, dialog controls and consistent footer-link alignment.
 
 ## Checks
 
